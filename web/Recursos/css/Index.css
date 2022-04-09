@@ -1,0 +1,226 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 1, 2022, 1:16:17 PM
+    Author     : ADMIN
+*/
+
+body{
+    margin: 0;
+    padding: 0;
+}
+#reboto{    
+    margin-left: 35%;
+    margin-top: 200px;
+    background-image: url(../..//Imagenes/LOGO.png);
+    background-size: 100% 150px;
+    width: 25%;
+    height: 150px;
+    position: fixed;
+    animation-name: rebote;
+    animation-duration: 20s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -wabkit-animation-name: rebote;
+    -wabkit-animation-duration:20s;
+    -wabkit-animation-timing-function: ease-out;
+    -wabkit-animation-display: 0.5s;
+    -wabkit-animation-iteration-count: infinite;
+    -wabkit-animation-direction: alternate-reverse;
+    opacity: 0.5;
+}
+
+@keyframes rebote {
+    0%   {
+        transform: translate(0, 0)
+    }
+    5%  {
+        transform: translate(-500px, -200px)
+    }
+    10%  {
+        transform: translate(-450px, -150px)
+    }
+    15%  {
+        transform: translate(-450px, -150px)
+    }
+    20%  {
+        transform: translate(0, 0)
+    }
+    25%   {
+        transform: translate(500px, 200px)  rotate(180deg);
+
+    }
+    30%  {
+        transform: translate(500px, 100px)  rotate(90deg);
+    }
+    35%  {
+        transform: translate(-500px, 200px)  rotate(180deg);
+    }
+    40%  {
+        transform: translate(500px, -200px)  rotate(30deg);
+    }
+    45%  {
+        transform: translate(0px, 0px)
+    }
+    50%  {
+        transform: translate(0px, -200px)  rotate(360deg);
+    }
+    55%  {
+        transform: translate(500px, 0px)
+    }
+    60%  {
+        transform: translate(0px, 200px)  rotate(360deg);
+    }
+    65%  {
+        transform: translate(-500px, 0px)
+    }
+    90%  {
+        transform: translate(-300px, -200px)  rotate(160deg);
+    }
+    100%  {
+        transform: translate(0px, 0px)
+    }
+}
+#bienvenida{
+    margin-left: 35%;
+    margin-top: 350px;
+    width: 20%;
+    font-family: 'Lobster', cursive; 
+    text-align: center;
+    position: fixed;
+    animation-name: rebote2;
+    animation-duration: 20s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -wabkit-animation-name: rebote2;
+    -wabkit-animation-duration:20s;
+    -wabkit-animation-timing-function: ease-out;
+    -wabkit-animation-display: 0.5s;
+    -wabkit-animation-iteration-count: infinite;
+    -wabkit-animation-direction: alternate-reverse;
+    opacity: 0.5;
+}
+@keyframes rebote2 {
+    0%   {
+        transform: translate(0, 0)
+    }
+    5%  {
+        transform: translate(500px, -00px);
+        color: red;
+    }
+    10%  {
+        transform: translate(450px, 150px);
+        color:#0DD1BE;
+    }
+    15%  {
+        transform: translate(450px, 150px)
+    }
+    20%  {
+        transform: translate(0, 0)
+    }
+    25%   {
+        transform: translate(-500px, -200px)  rotate(180deg);
+        color: #FCF807;
+    }
+    30%  {
+        transform: translate(-500px, -100px)  rotate(90deg);
+    }
+    35%  {
+        transform: translate(500px, -200px)  rotate(180deg);
+        color: #0715FC;
+    }
+    40%  {
+        transform: translate(-500px, 200px)  rotate(30deg);
+    }
+    45%  {
+        transform: translate(0px, 0px);
+        color: #FC0730;
+    }
+    50%  {
+        transform: translate(0px, 200px)  rotate(360deg);
+        Color: #13FC07;
+    }
+    55%  {
+        transform: translate(-500px, 0px)
+    }
+    60%  {
+        transform: translate(0px, -200px)  rotate(360deg);
+        color: #FCBC07;
+    }
+    65%  {
+        transform: translate(500px, 0px)
+    }
+    90%  {
+        transform: translate(300px, 200px)  rotate(160deg);
+        color: #BE07FC;
+    }
+    100%  {
+        transform: translate(0px, 0px);
+        color: #000;
+    }
+}
+#Containerlogin{
+    margin-left: 10%;    
+    margin-right: 10%;
+    margin-top: 200px; 
+    position: absolute;
+    background-image: linear-gradient(to right, #06C1A4 , #E0EC19);        
+}
+#Containerlogin:hover{   
+   background-image: linear-gradient(to right,  #E0EC19, #06C1A4 );    
+}
+#Containerlogin:hover #bienvenida, #reboto{
+   opacity: 0.5;
+}
+.logologin{   
+    background: -webkit-linear-gradient(left top, #FF0000, #1EBE0A);
+    background: linear-gradient(to bottom right, #FF0000, #1EBE0A);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+    text-align: center;
+}
+.titulo{
+    font-size: 3.5em;    
+    color: white;
+    font-family: 'Lobster', cursive; 
+}
+label{
+    font-size: 1.25em;    
+}
+#loginiz h1{
+    font-size: 3em;
+    color: blue;
+    text-align: center;
+}
+.colorbtn{
+    margin-top: 50px;
+    background-image: linear-gradient(to right,   red, #1BFC03);  
+    color: black;
+}
+.colorbtn:hover{  
+    background-image: linear-gradient(to right,   blue, #1BFC03);    
+}
+#Usuario, #Contra{
+    border-bottom: 5px solid red;
+}
+#Usuario:hover, #Contra:hover{
+    border-bottom: 5px solid blue;
+}
+.form-control{
+    outline: none;
+    background-color: #dfe;
+    border-radius: 20%;
+    border-bottom: 5px solid red;    
+    color: #000;
+    font-weight: 500;
+}
+.DatosPosition{
+    position: absolute;
+    margin-left: 8%;
+}

@@ -1,0 +1,31 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 1, 2022, 11:47:07 AM
+    Author     : ADMIN
+*/
+
+.mitad img{    
+    margin: 8%;
+    border-radius: 50%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.inativo{
+    box-shadow: 0 0 0 5px;
+}
+.mitad input{
+    height: 185px; 
+    margin: 4%;
+    position: absolute;    
+    width: 170px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cambio1{
+    box-shadow: 0 0 0 5px blue;
+}

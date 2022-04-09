@@ -1,0 +1,60 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 26, 2022, 2:28:21 PM
+    Author     : ADMIN
+*/
+
+#MenuLogoP img{
+    height: 60px;
+    object-fit: cover;
+}
+#MenuLogoP {
+    background-image: linear-gradient(to right, red, #1BFC03);
+    border-radius: 50%;
+    border-color: red;
+    box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+    transition: box-shadow .4s;
+}
+#MenuLogoP:hover{
+    box-shadow: 0px 0px 0px 0px rgba(255,255,255,.6);
+}
+nav{
+    background-image: linear-gradient(to right, #06C1A4 , #E0EC19);    
+}
+.btnMenuP{
+    background-image: linear-gradient(to right, red, #1BFC03);
+    border-radius: 50%;
+    border-color: red;
+    box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+    transition: box-shadow .4s;
+}
+.btnMenuP:hover{
+    box-shadow: 0px 0px 0px 0px rgba(255,255,255,.6);
+}
+
+.Texto{
+    font-size: 1.2em;
+    color: white;
+    text-align: center;
+    padding: 10px;    
+    transition: opacity .4s;
+    position: absolute;
+    opacity: 0;
+}
+#btnMenuP2D{
+    height: 0px;
+    transition: height .4s;
+}
+
+#btnMenuP2:hover #btnMenuP2D{
+    height: 40px;    
+}
+#btnMenuP2:hover #Texto2{
+    opacity: 1;   
+}
+.Activo{
+    background-image: linear-gradient(to right,   blue, #1BFC03); 
+}
