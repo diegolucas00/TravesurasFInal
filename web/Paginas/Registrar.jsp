@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col col-lg-6">
                 <label>Categoria</label>
-                <select name="Categoria" id="Categoria">
+                <select name="Categoria" id="Categoria" class="form-control">
                     
                 </select>
             </div>
