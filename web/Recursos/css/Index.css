@@ -187,8 +187,9 @@ body{
 }
 .titulo{
     font-size: 3.5em;    
-    color: white;
+    color: #000;
     font-family: 'Lobster', cursive; 
+    margin: 2%;
 }
 label{
     font-size: 1.25em;    
