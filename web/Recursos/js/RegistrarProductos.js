@@ -39,9 +39,14 @@ $(document).ready(function () {
             file.attr("type", "file");
             file.attr("id", "IMGProducto");
             $("#mitadf").append(file);
-            $("#IMGProducto").change( function (e) {
+            $("#IMGProducto").change(function (e) {
                 vistaprevia(e);
             });
+            let select = $("<select>");
+            select.addClass("form-control");
+            select.attr("id", "Categoria");
+            $("#Categoriadiv").append(select);
+            TraerCategoria();
 
         };
         ajax(ir_a, llevar, hacer);
@@ -52,11 +57,19 @@ $(document).ready(function () {
         leer.readAsDataURL(e.target.files[0]);
 
         leer.onload = function () {
-            let VistaPrevia = document.getElementById("ImgSubida");            
-            VistaPrevia.src = leer.result;  
+            let VistaPrevia = document.getElementById("ImgSubida");
+            VistaPrevia.src = leer.result;
             $(".inativo").toggleClass("cambio1");
-        }
-    }
+        };
+    };
+    const TraerCategoria = () => {
+        let ir_a = "Paginas/Registrar.jsp";
+        let llevar;
+        let hacer = (data) => {
+            
+        };
+        ajax(ir_a, llevar, hacer);
+    };
 
 
 });

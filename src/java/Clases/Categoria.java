@@ -27,6 +27,15 @@ public class Categoria {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
+
+    public Categoria() {
+    }
+
+    public Categoria(int id, String Nombre) {
+        this.id = id;
+        this.Nombre = Nombre;
+    }
+    
     
     
 }

@@ -18,7 +18,7 @@
             <img src="Imagenes/Foto.png" id="ImgSubida" class="inativo">            
         </div>          
         <div class="row">
-            <div class="col col-lg-6">
+            <div class="col col-lg-6" id="Categoriadiv">
                 <label>Categoria</label>
                 <select name="Categoria" id="Categoria" class="form-control">
                     
@@ -27,7 +27,7 @@
             <div class="col col-lg-6">
                 <label>Fecha inicio</label>
                 <input type="date" id="FechaIE" name="FechaIE" class="form-control">
-            </div>
+            </div>  
         </div>   
         <div class="row">
             <div class="col col-lg-6">
