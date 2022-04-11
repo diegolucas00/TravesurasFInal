@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import DAO.ProductoDAO;
+import ClaseDAO.ProductoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
