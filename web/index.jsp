@@ -19,6 +19,7 @@
         <script src="Recursos/bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="Recursos/js/InicioSeccion.js" type="text/javascript"></script>
         <script src="Recursos/js/RegistrarProductos.js" type="text/javascript"></script>
+        <script src="Recursos/js/Alertas.js" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light ">

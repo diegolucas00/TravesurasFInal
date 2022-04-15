@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
     <servlet>
-        <servlet-name>TraerCategorias</servlet-name>
-        <servlet-class>Controlador.TraerCategorias</servlet-class>
+        <servlet-name>ListaCategorias</servlet-name>
+        <servlet-class>Controlador.ListaCategorias</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TraerCategoria</servlet-name>
-        <servlet-class>Controlador.TraerCategoria</servlet-class>
+        <servlet-name>ListaSubCategorias</servlet-name>
+        <servlet-class>Controlador.ListaSubCategorias</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerificarP</servlet-name>
+        <servlet-class>Controlador.VerificarP</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TraerCategorias</servlet-name>
-        <url-pattern>/TraerCategorias</url-pattern>
+        <servlet-name>ListaCategorias</servlet-name>
+        <url-pattern>/ListaCategorias</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TraerCategoria</servlet-name>
-        <url-pattern>/TraerCategoria</url-pattern>
+        <servlet-name>ListaSubCategorias</servlet-name>
+        <url-pattern>/ListaSubCategorias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarP</servlet-name>
+        <url-pattern>/VerificarP</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

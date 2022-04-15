@@ -28,6 +28,14 @@ public class SubCategoria {
         this.Nombre = Nombre;
     }
 
+    public SubCategoria() {
+    }
+
+    public SubCategoria(int id, String Nombre) {
+        this.id = id;
+        this.Nombre = Nombre;
+    }
+
     
     
 }

@@ -46,10 +46,27 @@ $(document).ready(function () {
             select.addClass("form-control");
             select.attr("id", "Categoria");
             $("#Categoriadiv").append(select);
-            TraerCategoria();
+            let subc = $("<select>");
+            subc.addClass("form-control");
+            subc.attr("id", "SubCategoria");
+            $("#SubCategoriadiv").append(subc);
+            select.change(function () {
+                subcategorias();
+            });
+            let nombrep = $("<input>");
+            nombrep.addClass("form-control");
+            nombrep.attr("id", "NombreP");
+            nombrep.attr("type", "text");
+            nombrep.attr("placeholder", "Porvador digite el nombre del producto");
+            nombrep.change(function () {
+                VerificarP();
+            });
+            $("#NombrePdiv").append(nombrep);
+
 
         };
         ajax(ir_a, llevar, hacer);
+        listaCategoria();
 
     };
     const vistaprevia = (e) => {
@@ -62,15 +79,71 @@ $(document).ready(function () {
             $(".inativo").toggleClass("cambio1");
         };
     };
-    const TraerCategoria = () => {
-        let ir_a = "Paginas/Registrar.jsp";
+
+    const listaCategoria = () => {
+        let ir_a = "ListaCategorias";
         let llevar;
         let hacer = (data) => {
-            
+            const dato = JSON.parse(data);
+            let option = $("<option>");
+            option.addClass("form-control");
+            option.html("nulo");
+            option.val(0);
+            option.attr("disabled", "disabled");
+            option.attr("selected", "true");
+            $("#Categoria").append(option);
+            dato.forEach(elemento => {
+                let option = $("<option>");
+                option.addClass("form-control");
+                option.html(elemento.Nombre);
+                option.val(elemento.id);
+                $("#Categoria").append(option);
+            });
+
         };
         ajax(ir_a, llevar, hacer);
     };
-
+    const subcategorias = () => {
+        let ir_a = "ListaSubCategorias";
+        let llevar = {
+            id: $("#Categoria").val()
+        };
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            let option = $("<option>");
+            option.addClass("form-control");
+            option.html("nulo");
+            option.val(0);
+            option.attr("disabled", "disabled");
+            option.attr("selected", "true");
+            $("#SubCategoria").html(option);
+            dato.forEach(elemento => {
+                let option = $("<option>");
+                option.addClass("form-control");
+                option.html(elemento.Nombre);
+                option.val(elemento.id);
+                $("#SubCategoria").append(option);
+            });
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+    const VerificarP = () => {
+        let ir_a = "VerificarP";
+        let llevar = {
+            nombre: $("#NombreP").val()
+        };
+        let hacer = (data) => {
+            if(data !== "null"){
+                 swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                    html: 'El producto ya esta registrado'
+                });
+            }
+        };
+        ajax(ir_a, llevar, hacer);
+    };
 
 });
 
