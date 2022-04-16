@@ -48,11 +48,12 @@ public class GuardarFoto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            FileItemFactory fileItemFactory = new DiskFileItemFactory();
-            ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
-            List<FileItem> fileItemList = null;
-         
-            for (FileItem item : fileItemList) {
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            Part foto = request.getPart("IMGProducto");
+            String dasd;
+
+            /* for (FileItem item : fileItemList) {
 
                 String ruta = "C:\\Users\\ADMIN\\Documents\\NetBeansProjects\\PaginaTravesusras\\web\\ImgCatalogo\\Pañaleria\\Pañales\\PañaleriaPañal1.jpg";
 
@@ -66,8 +67,7 @@ public class GuardarFoto extends HttpServlet {
                     Logger.getLogger(GuardarFoto.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-            }
-
+            }*/
         }
 
     }
