@@ -75,7 +75,6 @@ public class ProductoDAO extends Conexion.Conexion {
     }
 
     public String VerificarP(String categoria) {
-        SubCategoria subcategoria;
         String resultado = null;
         String sentencia = "SELECT * FROM `producto` WHERE Nombre LIKE ?;";
         if (this.Connexion()) {
@@ -83,7 +82,7 @@ public class ProductoDAO extends Conexion.Conexion {
                 PST = super.sentences(sentencia);
                 PST.setString(1, "%" + categoria + "%");
                 ResultSet res = PST.executeQuery();
-                if(res.next()){
+                if (res.next()) {
                     resultado = "Repetido";
                 }
                 super.cerrar();
@@ -98,5 +97,79 @@ public class ProductoDAO extends Conexion.Conexion {
 
         return resultado;
     }
+
+    public String ConsultarCategoria(int numero) {
+        String resultado = null;
+        String sentencia = "SELECT * FROM `categoria` WHERE Id = ?;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                PST.setInt(1, numero);
+                ResultSet res = PST.executeQuery();
+                if (res.next()) {
+                    resultado = res.getString("Nombre");
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = String.valueOf(ex);
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = error;
+        }
+
+        return resultado;
+    }
+
+    public String SubConsultarCategoria(int numero) {
+        String resultado = null;
+        String sentencia = "SELECT * FROM `subcategoria` WHERE Id = ?;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                PST.setInt(1, numero);
+                ResultSet res = PST.executeQuery();
+                if (res.next()) {
+                    resultado = res.getString("Nombre");
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = String.valueOf(ex);
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = error;
+        }
+
+        return resultado;
+    }
+    public String NombreImg() {
+        String resultado = null;
+        int resultado1 = 0;
+        String sentencia = "select * from tabla producto by Id asc limit 1";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);                
+                ResultSet res = PST.executeQuery();
+                if (res.next()) {
+                    resultado1 = res.getInt("Id");
+                    resultado = String.valueOf(resultado1+1);
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = String.valueOf(ex);
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = error;
+        }
+
+        return resultado;
+    }
+
+  
 
 }

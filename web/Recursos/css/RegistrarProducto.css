@@ -29,3 +29,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .cambio1{
     box-shadow: 0 0 0 5px blue;
 }
+span{
+    color: red;
+}

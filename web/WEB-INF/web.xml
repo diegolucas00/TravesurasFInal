@@ -18,6 +18,14 @@
         <servlet-name>VerificarP</servlet-name>
         <servlet-class>Controlador.VerificarP</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarFoto</servlet-name>
+        <servlet-class>Controlador.GuardarFoto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FotoGuardada</servlet-name>
+        <servlet-class>Controlador.FotoGuardada</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -29,6 +37,14 @@
     <servlet-mapping>
         <servlet-name>VerificarP</servlet-name>
         <url-pattern>/VerificarP</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarFoto</servlet-name>
+        <url-pattern>/GuardarFoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FotoGuardada</servlet-name>
+        <url-pattern>/FotoGuardada</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

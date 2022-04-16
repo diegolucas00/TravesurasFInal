@@ -38,17 +38,22 @@ $(document).ready(function () {
             let file = $("<input>");
             file.attr("type", "file");
             file.attr("id", "IMGProducto");
+            file.attr("name", "IMGProducto");
             $("#mitadf").append(file);
+            let foto;
             $("#IMGProducto").change(function (e) {
                 vistaprevia(e);
+                foto = e;
             });
             let select = $("<select>");
             select.addClass("form-control");
             select.attr("id", "Categoria");
+            select.attr("name", "Categoria");
             $("#Categoriadiv").append(select);
             let subc = $("<select>");
             subc.addClass("form-control");
             subc.attr("id", "SubCategoria");
+            subc.attr("name", "SubCategoria");
             $("#SubCategoriadiv").append(subc);
             select.change(function () {
                 subcategorias();
@@ -56,17 +61,20 @@ $(document).ready(function () {
             let nombrep = $("<input>");
             nombrep.addClass("form-control");
             nombrep.attr("id", "NombreP");
+            nombrep.attr("name", "NombreP");
             nombrep.attr("type", "text");
             nombrep.attr("placeholder", "Porvador digite el nombre del producto");
             nombrep.change(function () {
+                $("#NombreP").val($("#NombreP").val().toUpperCase());
+                $("#NombreP").html($("#NombreP").val().toUpperCase());
                 VerificarP();
             });
             $("#NombrePdiv").append(nombrep);
-
-
+            validarevento(foto);
         };
         ajax(ir_a, llevar, hacer);
         listaCategoria();
+
 
     };
     const vistaprevia = (e) => {
@@ -87,7 +95,7 @@ $(document).ready(function () {
             const dato = JSON.parse(data);
             let option = $("<option>");
             option.addClass("form-control");
-            option.html("nulo");
+            option.html("....");
             option.val(0);
             option.attr("disabled", "disabled");
             option.attr("selected", "true");
@@ -112,7 +120,7 @@ $(document).ready(function () {
             const dato = JSON.parse(data);
             let option = $("<option>");
             option.addClass("form-control");
-            option.html("nulo");
+            option.html("....");
             option.val(0);
             option.attr("disabled", "disabled");
             option.attr("selected", "true");
@@ -133,8 +141,8 @@ $(document).ready(function () {
             nombre: $("#NombreP").val()
         };
         let hacer = (data) => {
-            if(data !== "null"){
-                 swal({
+            if (data !== "null") {
+                swal({
                     type: 'error',
                     title: 'Oops...',
                     background: 'linear-gradient(#2BD9DD , #6ACF28)',
@@ -144,6 +152,56 @@ $(document).ready(function () {
         };
         ajax(ir_a, llevar, hacer);
     };
+    const validarevento = (e) => {
+        $("#formProducto").validate({
+            rules: {
+                Categoria: {
+                    required: true
+                },
+                SubCategoria: {
+                    required: true
+                },
+                NombreP: {
+                    required: true,
+                    maxlength: 80
+                },
+                ValorU: {
+                    required: true,
+                    number: true
+                },
+                ValorP: {
+                    required: true,
+                    number: true
+                },
+                CantidadU: {
+                    required: true,
+                    number: true
+                },
+                CantidadP: {
+                    required: true,
+                    number: 50
+                },
 
+            },
+            submitHandler: function () {
+                var formData = new FormData(document.getElementById('formuploadajax'));
+                var a, b;
+                $.ajax({
+                    url: "GuardarFoto",
+                    type: "post",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (result) {
+                        a = result;
+                    }
+
+                });
+
+            }
+        });
+    }
+    ;
 });
 

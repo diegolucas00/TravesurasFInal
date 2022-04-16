@@ -20,6 +20,8 @@
         <script src="Recursos/js/InicioSeccion.js" type="text/javascript"></script>
         <script src="Recursos/js/RegistrarProductos.js" type="text/javascript"></script>
         <script src="Recursos/js/Alertas.js" type="text/javascript"></script>
+        <script src="Recursos/js/jquery.validate.js" type="text/javascript"></script>
+        <script src="Recursos/js/jquery.validate.min.js" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light ">
