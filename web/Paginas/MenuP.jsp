@@ -24,6 +24,14 @@
                     <p class="Texto" id="Texto2">Registrar productos</p>         
                 </div>
             </li>
+            <li class="nav-item"  id="btnMenuP3">
+                <div class="d-flex justify-content-center" id="DivEstadobtn3">
+                        <button class="btn btnMenuP" id="Estadobtn3"><img src="Imagenes/Registrar.png"></button>                        
+                </div>  
+                <div class="d-flex justify-content-center" id="btnMenuP2D">
+                    <p class="Texto" id="Texto2">Proveedor</p>         
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
             </li>

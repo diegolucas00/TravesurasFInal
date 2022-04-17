@@ -1,0 +1,23 @@
+/* 16/4/22 agrgacion de tablas para proveedor*/ 
+CREATE TABLE proveedor(
+    Id int PRIMARY KEY AUTO_INCREMENT,
+    NIT varchar(30) UNIQUE DEFAULT "Personal",
+    NombreEmpresa varchar(80) not null,
+    NombreVendedor varchar(80) not null,
+    Correo varchar(30) DEFAULT "No tiene",
+    Ceulular varchar(15) DEFAULT "No tiene"
+    );
+CREATE TABLE proveedorCategoria(
+    FRProveedor int not null,
+    FRCategoria int NOT null,
+    primary key(FRProveedor,FRCategoria)
+    );
+    
+    
+    ALTER TABLE proveedorCategoria
+    ADD CONSTRAINT FRProveedor_SubCategora
+    FOREIGN KEY (FRCategoria) REFERENCES categoria(Id);
+    
+      ALTER TABLE FRProveedor
+    ADD CONSTRAINT FRSCategora_Proveedor
+    FOREIGN KEY (FRProveedor) REFERENCES proveedor(Id);

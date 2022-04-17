@@ -15,6 +15,8 @@ public class Producto {
     private String ImgQR;
     private int ValorPaquete;
     private int ValorUnidad;
+    private int CantidadUnidad;
+    private int CatidadPaquete;
     private String Descripcion;
     private int SubCategoria;
 
@@ -80,6 +82,22 @@ public class Producto {
 
     public void setSubCategoria(int SubCategoria) {
         this.SubCategoria = SubCategoria;
+    }
+
+    public int getCantidadUnidad() {
+        return CantidadUnidad;
+    }
+
+    public void setCantidadUnidad(int CantidadUnidad) {
+        this.CantidadUnidad = CantidadUnidad;
+    }
+
+    public int getCatidadPaquete() {
+        return CatidadPaquete;
+    }
+
+    public void setCatidadPaquete(int CatindadPaquete) {
+        this.CatidadPaquete = CatindadPaquete;
     }
     
     

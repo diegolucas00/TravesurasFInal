@@ -26,6 +26,10 @@
         <servlet-name>FotoGuardada</servlet-name>
         <servlet-class>Controlador.FotoGuardada</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarProducto</servlet-name>
+        <servlet-class>Controlador.RegistrarProducto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -45,6 +49,10 @@
     <servlet-mapping>
         <servlet-name>FotoGuardada</servlet-name>
         <url-pattern>/FotoGuardada</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarProducto</servlet-name>
+        <url-pattern>/RegistrarProducto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

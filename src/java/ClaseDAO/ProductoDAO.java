@@ -5,6 +5,7 @@
 package ClaseDAO;
 
 import Clases.Categoria;
+import Clases.Producto;
 import Clases.SubCategoria;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -145,17 +146,18 @@ public class ProductoDAO extends Conexion.Conexion {
 
         return resultado;
     }
+
     public String NombreImg() {
         String resultado = null;
         int resultado1 = 0;
         String sentencia = "select * from tabla producto by Id asc limit 1";
         if (this.Connexion()) {
             try {
-                PST = super.sentences(sentencia);                
+                PST = super.sentences(sentencia);
                 ResultSet res = PST.executeQuery();
                 if (res.next()) {
                     resultado1 = res.getInt("Id");
-                    resultado = String.valueOf(resultado1+1);
+                    resultado = String.valueOf(resultado1 + 1);
                 }
                 super.cerrar();
             } catch (SQLException ex) {
@@ -170,6 +172,41 @@ public class ProductoDAO extends Conexion.Conexion {
         return resultado;
     }
 
-  
+        public String RegistrarProducto(Producto prod) {
+        String resultado = "Error";
+        String sentencia = "INSERT INTO `producto`(`Id`, `Nombre`,"+
+                            " `Img`, `ImgPQ`, `ValorPaquete`, "+
+                            "`ValorUnidad`, `CantidadUnitario`,"+
+                            "`CantidadPaquete`, `Descripcion`, "+
+                            "`FechaCreacion`, `FRSudCategoria`)"+
+                            " VALUES (null,?,null,null,?,?,?,?,?,NOW(),?)";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                PST.setString(1, prod.getNombre());
+                PST.setInt(2, prod.getValorPaquete())   ;
+                PST.setInt(3, prod.getValorUnidad());
+                PST.setInt(4, prod.getCantidadUnidad());
+                PST.setInt(5, prod.getCatidadPaquete());
+                PST.setString(6, prod.getDescripcion());
+                PST.setInt(7, prod.getSubCategoria());
+                if(!PST.execute()){
+                    resultado = "OK";
+                }else{
+                    resultado = "Error al registrarlo";
+                }
+                
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = String.valueOf(ex);
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = error;
+        }
+        
+        return resultado;
+    }
 
 }

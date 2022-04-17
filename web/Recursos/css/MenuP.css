@@ -25,6 +25,7 @@ nav{
     background-image: linear-gradient(to right, #06C1A4 , #E0EC19);    
 }
 .btnMenuP{
+    margin-left: 20px;
     background-image: linear-gradient(to right, red, #1BFC03);
     border-radius: 50%;
     border-color: red;
@@ -53,6 +54,17 @@ nav{
     height: 40px;    
 }
 #btnMenuP2:hover #Texto2{
+    opacity: 1;   
+}
+#btnMenuP3D{
+    height: 0px;
+    transition: height .4s;
+}
+
+#btnMenuP3:hover #btnMenuP3D{
+    height: 40px;    
+}
+#btnMenuP3:hover #Texto3{
     opacity: 1;   
 }
 .Activo{

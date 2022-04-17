@@ -184,20 +184,34 @@ $(document).ready(function () {
 
             },
             submitHandler: function () {
-                var formData = new FormData(document.getElementById('formuploadajax'));
-                var a, b;
-                $.ajax({
-                    url: "GuardarFoto",
-                    type: "post",
-                    data: formData,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function (result) {
-                        a = result;
+                let ir_a = "RegistrarProducto";
+                let llevar = {
+                    subcategoria: $("#SubCategoria").val(),
+                    nombrep: $("#NombreP").val(),
+                    valoru: $("#ValorU").val(),
+                    valorp: $("#ValorP").val(),
+                    cantidadu: $("#CantidadU").val(),
+                    cantidadp: $("#CantidadP").val(),
+                    descripcion: $("#Descripcion").val()
+                };
+                let hacer = (data) => {
+                    if (data === "OK") {
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                            html: 'El producto ya esta registrado'
+                        });
+                    }else{
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                            html: 'El producto ya esta registrado '+data
+                        });
                     }
-
-                });
+                };
+                ajax(ir_a, llevar, hacer);
 
             }
         });
