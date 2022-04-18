@@ -77,14 +77,14 @@ public class ProductoDAO extends Conexion.Conexion {
 
     public String VerificarP(String categoria) {
         String resultado = null;
-        String sentencia = "SELECT * FROM `producto` WHERE Nombre LIKE ?;";
+        String sentencia = "SELECT * FROM `Producto` WHERE Nombre LIKE ?;";
         if (this.Connexion()) {
             try {
                 PST = super.sentences(sentencia);
-                PST.setString(1, "%" + categoria + "%");
+                PST.setString(1, categoria);
                 ResultSet res = PST.executeQuery();
                 if (res.next()) {
-                    resultado = "Repetido";
+                    resultado = "OK";
                 }
                 super.cerrar();
             } catch (SQLException ex) {
@@ -172,30 +172,30 @@ public class ProductoDAO extends Conexion.Conexion {
         return resultado;
     }
 
-        public String RegistrarProducto(Producto prod) {
+    public String RegistrarProducto(Producto prod) {
         String resultado = "Error";
-        String sentencia = "INSERT INTO `producto`(`Id`, `Nombre`,"+
-                            " `Img`, `ImgPQ`, `ValorPaquete`, "+
-                            "`ValorUnidad`, `CantidadUnitario`,"+
-                            "`CantidadPaquete`, `Descripcion`, "+
-                            "`FechaCreacion`, `FRSudCategoria`)"+
-                            " VALUES (null,?,null,null,?,?,?,?,?,NOW(),?)";
+        String sentencia = "INSERT INTO `producto`(`Id`, `Nombre`,"
+                + " `Img`, `ImgPQ`, `ValorPaquete`, "
+                + "`ValorUnidad`, `CantidadUnitario`,"
+                + "`CantidadPaquete`, `Descripcion`, "
+                + "`FechaCreacion`, `FRSudCategoria`)"
+                + " VALUES (null,?,null,null,?,?,?,?,?,NOW(),?)";
         if (this.Connexion()) {
             try {
                 PST = super.sentences(sentencia);
                 PST.setString(1, prod.getNombre());
-                PST.setInt(2, prod.getValorPaquete())   ;
+                PST.setInt(2, prod.getValorPaquete());
                 PST.setInt(3, prod.getValorUnidad());
                 PST.setInt(4, prod.getCantidadUnidad());
                 PST.setInt(5, prod.getCatidadPaquete());
                 PST.setString(6, prod.getDescripcion());
                 PST.setInt(7, prod.getSubCategoria());
-                if(!PST.execute()){
+                if (!PST.execute()) {
                     resultado = "OK";
-                }else{
+                } else {
                     resultado = "Error al registrarlo";
                 }
-                
+
                 super.cerrar();
             } catch (SQLException ex) {
                 resultado = String.valueOf(ex);
@@ -205,7 +205,7 @@ public class ProductoDAO extends Conexion.Conexion {
             error = "Error con la conexion a la base de datos, verifique conexion";
             resultado = error;
         }
-        
+
         return resultado;
     }
 

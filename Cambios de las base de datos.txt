@@ -18,6 +18,6 @@ CREATE TABLE proveedorCategoria(
     ADD CONSTRAINT FRProveedor_SubCategora
     FOREIGN KEY (FRCategoria) REFERENCES categoria(Id);
     
-      ALTER TABLE FRProveedor
+      ALTER TABLE proveedorCategoria
     ADD CONSTRAINT FRSCategora_Proveedor
     FOREIGN KEY (FRProveedor) REFERENCES proveedor(Id);

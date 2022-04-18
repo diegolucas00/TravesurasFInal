@@ -60,7 +60,11 @@
                     <textarea rows="4" id="Descripcion" name="Descripcion" class="form-control" placeholder="Descripcion"></textarea>
                 </div>
             </div> 
-            <button class="btn btn-info" id="EnviarProducto" name="EnviarProducto">Registrar</button>
+            <div class="d-flex justify-content-center mitad"  >
+                <button class="btn btn-info" id="EnviarProducto" name="EnviarProducto">Registrar</button>
+            </div>
+        </form>
+        <div class="d-flex justify-content-center mitad" id="Butons" >
+        </div>
     </div>
-</form>
 </html>

@@ -1,7 +1,7 @@
-    <%-- 
-    Document   : index
-    Created on : Feb 28, 2022, 10:26:29 AM
-    Author     : ADMIN
+<%-- 
+Document   : index
+Created on : Feb 28, 2022, 10:26:29 AM
+Author     : ADMIN
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,6 +15,9 @@
         <link href="Recursos/css/LetraCursiva.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/css/MenuP.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/css/RegistrarProducto.css" rel="stylesheet" type="text/css"/>
+        <link href="Recursos/select/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
+        <link href="Recursos/select/css/select2.css" rel="stylesheet" type="text/css"/>
+
         <script src="Recursos/js/jquery-3.4.1.js" type="text/javascript"></script>
         <script src="Recursos/bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="Recursos/js/InicioSeccion.js" type="text/javascript"></script>
@@ -22,7 +25,11 @@
         <script src="Recursos/js/Alertas.js" type="text/javascript"></script>
         <script src="Recursos/js/jquery.validate.js" type="text/javascript"></script>
         <script src="Recursos/js/jquery.validate.min.js" type="text/javascript"></script>
-    </head>
+        <script src="Recursos/js/RegistrarProveedor.js" type="text/javascript"></script>   
+        <script src="Recursos/select/js/bootstrap-multiselect.js" type="text/javascript"></script>
+        <script src="Recursos/select/js/select2.js" type="text/javascript"></script>
+        
+        </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="#" id="MenuLogoP"><img  src="Imagenes/LOGO.png"></a>
@@ -87,7 +94,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>       
         <div id="reboto">               
         </div>
         <h1 id="bienvenida">!HOLA ANGELES!</h1>        

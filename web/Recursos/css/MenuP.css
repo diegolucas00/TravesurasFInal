@@ -25,7 +25,8 @@ nav{
     background-image: linear-gradient(to right, #06C1A4 , #E0EC19);    
 }
 .btnMenuP{
-    margin-left: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
     background-image: linear-gradient(to right, red, #1BFC03);
     border-radius: 50%;
     border-color: red;

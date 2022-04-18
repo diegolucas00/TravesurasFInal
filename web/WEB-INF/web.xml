@@ -30,6 +30,14 @@
         <servlet-name>RegistrarProducto</servlet-name>
         <servlet-class>Controlador.RegistrarProducto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerificarPro</servlet-name>
+        <servlet-class>Controlador.VerificarPro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarProveedor</servlet-name>
+        <servlet-class>Controlador.RegistrarProveedor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -53,6 +61,14 @@
     <servlet-mapping>
         <servlet-name>RegistrarProducto</servlet-name>
         <url-pattern>/RegistrarProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarPro</servlet-name>
+        <url-pattern>/VerificarPro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarProveedor</servlet-name>
+        <url-pattern>/RegistrarProveedor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

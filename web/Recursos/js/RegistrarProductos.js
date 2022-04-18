@@ -34,6 +34,7 @@ $(document).ready(function () {
         let llevar;
         let hacer = (data) => {
             $("#datos").html(data);
+            $(".btnMenuP").removeClass("Activo");
             $("#Estadobtn2").addClass("Activo");
             let file = $("<input>");
             file.attr("type", "file");
@@ -141,7 +142,7 @@ $(document).ready(function () {
             nombre: $("#NombreP").val()
         };
         let hacer = (data) => {
-            if (data !== "null") {
+            if (data === "OK") {
                 swal({
                     type: 'error',
                     title: 'Oops...',
@@ -179,7 +180,7 @@ $(document).ready(function () {
                 },
                 CantidadP: {
                     required: true,
-                    number: 50
+                    number: true
                 },
 
             },
