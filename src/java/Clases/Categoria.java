@@ -35,6 +35,10 @@ public class Categoria {
         this.id = id;
         this.Nombre = Nombre;
     }
+
+    public Categoria(int id) {
+        this.id = id;
+    }
     
     
     

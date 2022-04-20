@@ -38,6 +38,26 @@
         <servlet-name>RegistrarProveedor</servlet-name>
         <servlet-class>Controlador.RegistrarProveedor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TraerProveedores</servlet-name>
+        <servlet-class>Controlador.TraerProveedores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TraerDatosProveedor</servlet-name>
+        <servlet-class>Controlador.TraerDatosProveedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListaCategoriasProvee</servlet-name>
+        <servlet-class>Controlador.ListaCategoriasProvee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarProveedor</servlet-name>
+        <servlet-class>Controlador.ModificarProveedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TraerProductosFaltantes</servlet-name>
+        <servlet-class>Controlador.TraerProductosFaltantes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -69,6 +89,26 @@
     <servlet-mapping>
         <servlet-name>RegistrarProveedor</servlet-name>
         <url-pattern>/RegistrarProveedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraerProveedores</servlet-name>
+        <url-pattern>/TraerProveedores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraerDatosProveedor</servlet-name>
+        <url-pattern>/TraerDatosProveedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaCategoriasProvee</servlet-name>
+        <url-pattern>/ListaCategoriasProvee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarProveedor</servlet-name>
+        <url-pattern>/ModificarProveedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraerProductosFaltantes</servlet-name>
+        <url-pattern>/TraerProductosFaltantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

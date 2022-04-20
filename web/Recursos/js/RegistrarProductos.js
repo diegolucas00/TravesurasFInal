@@ -181,7 +181,7 @@ $(document).ready(function () {
                 CantidadP: {
                     required: true,
                     number: true
-                },
+                }
 
             },
             submitHandler: function () {

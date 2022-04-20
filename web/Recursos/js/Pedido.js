@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
+
 $(document).ready(function () {
     const ajax = (ir_a, llevar, hacer) => {
         $.ajax({
@@ -24,15 +25,30 @@ $(document).ready(function () {
             }
         });
     };
-    $("#ingresar").click(function () {
-        let ir_a = "Paginas/Catalogo.jsp";
+
+    $("#Estadobtn4").click(function () {
+        TraerProductosAgotados();
+    });
+
+    const TraerProductosAgotados = () => {
+        let ir_a = "Paginas/Pedido.jsp";
         let llevar;
         let hacer = (data) => {
-            $("#datos").html(data);         
-
+            $("#datos").html(data);
+            ConsultarPedidoFaltante();
         };
         ajax(ir_a, llevar, hacer);
-    });   
 
+    };
+    const ConsultarPedidoFaltante = () => {
+        let ir_a = "Paginas/Pedido.jsp";
+        let llevar;
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            dato.forEach(elemento => {
+                
+            });
+        };
+        ajax(ir_a, llevar, hacer);
+    };
 });
-

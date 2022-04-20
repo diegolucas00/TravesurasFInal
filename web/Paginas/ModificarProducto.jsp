@@ -13,10 +13,18 @@
                 <h1 class="titulo">Modificar Proveedor</h1>                      
             </div> 
             <div class="d-flex justify-content-center mitad" id="selecpro">
-               
+
             </div>
             <div class="d-flex justify-content-center mitad" >
                 <button class="btn btn-success" id="ConsultarProducto" name="ConsultarProducto">Consultar</button>
+            </div>
+        </form>
+        <form id="formProveedorModificarR" method="post" action="" >
+            <div  id="divmod" >
+                
+            </div>
+            <div class="d-flex justify-content-center mitad" >
+                <button class="btn btn-info" id="ModificarProveedor" name="ModificarProveedor">Modificar</button>
             </div>
         </form>
     </div>

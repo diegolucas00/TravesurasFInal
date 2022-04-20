@@ -17,7 +17,7 @@ Author     : ADMIN
         <link href="Recursos/css/RegistrarProducto.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/select/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/select/css/select2.css" rel="stylesheet" type="text/css"/>
-
+       
         <script src="Recursos/js/jquery-3.4.1.js" type="text/javascript"></script>
         <script src="Recursos/bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="Recursos/js/InicioSeccion.js" type="text/javascript"></script>
@@ -28,6 +28,7 @@ Author     : ADMIN
         <script src="Recursos/js/RegistrarProveedor.js" type="text/javascript"></script>   
         <script src="Recursos/select/js/bootstrap-multiselect.js" type="text/javascript"></script>
         <script src="Recursos/select/js/select2.js" type="text/javascript"></script>
+        <script src="Recursos/js/Pedido.js" type="text/javascript"></script>
         
         </head>
     <body>
@@ -55,6 +56,14 @@ Author     : ADMIN
                         </div>  
                         <div class="d-flex justify-content-center" id="btnMenuP3D">
                             <p class="Texto" id="Texto3">Registrar productos</p>         
+                        </div>
+                    </li>
+                    <li class="nav-item"  id="btnMenuP4">
+                        <div class="d-flex justify-content-center" id="DivEstadobtn4">
+                            <button class="btn btnMenuP" id="Estadobtn4"><img src="Imagenes/Pedido.png"></button>                        
+                        </div>  
+                        <div class="d-flex justify-content-center" id="btnMenuP4D">
+                            <p class="Texto" id="Texto4">Pedido</p>         
                         </div>
                     </li>
                     <li class="nav-item">

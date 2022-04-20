@@ -20,6 +20,25 @@ public class Proveedor {
     private String Direccion;
     private ArrayList Categoria;
 
+    public Proveedor() {
+    }   
+
+    public Proveedor(int Id, String NIT, String NombreEmpresa, String NombreVendedor, String Correo, String Celular, String Direccion) {
+        this.Id = Id;
+        this.NIT = NIT;
+        this.NombreEmpresa = NombreEmpresa;
+        this.NombreVendedor = NombreVendedor;
+        this.Correo = Correo;
+        this.Celular = Celular;
+        this.Direccion = Direccion;
+    }   
+    
+    public Proveedor(int Id, String NombreEmpresa, String NombreVendedor) {
+        this.Id = Id;
+        this.NombreEmpresa = NombreEmpresa;
+        this.NombreVendedor = NombreVendedor;
+    }    
+    
     public int getId() {
         return Id;
     }

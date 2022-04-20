@@ -11,7 +11,7 @@ body{
     margin: 0;
     padding: 0;
 }
-#reboto{    
+#reboto{
     margin-left: 35%;
     margin-top: 200px;
     background-image: url(../..//Imagenes/LOGO.png);
@@ -89,7 +89,7 @@ body{
     margin-left: 35%;
     margin-top: 350px;
     width: 20%;
-    font-family: 'Lobster', cursive; 
+    font-family: 'Lobster', cursive;
     text-align: center;
     position: fixed;
     animation-name: rebote2;
@@ -166,33 +166,33 @@ body{
     }
 }
 #Containerlogin{
-    margin-left: 10%;    
+    margin-left: 10%;
     margin-right: 10%;
-    margin-top: 200px; 
+    margin-top: 200px;
     position: absolute;
-    background-image: linear-gradient(to right, #06C1A4 , #E0EC19);        
+    background-image: linear-gradient(to right, #06C1A4 , #E0EC19);
 }
-#Containerlogin:hover{   
-   background-image: linear-gradient(to right,  #E0EC19, #06C1A4 );    
+#Containerlogin:hover{
+    background-image: linear-gradient(to right,  #E0EC19, #06C1A4 );
 }
 #Containerlogin:hover #bienvenida, #reboto{
-   opacity: 0.5;
+    opacity: 0.5;
 }
-.logologin{   
+.logologin{
     background: -webkit-linear-gradient(left top, #FF0000, #1EBE0A);
     background: linear-gradient(to bottom right, #FF0000, #1EBE0A);
-    -webkit-background-clip: text;  
-    -webkit-text-fill-color: transparent;  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
 }
 .titulo{
-    font-size: 3.5em;    
+    font-size: 3.5em;
     color: #000;
-    font-family: 'Lobster', cursive; 
+    font-family: 'Lobster', cursive;
     margin: 2%;
 }
 label{
-    font-size: 1.25em;    
+    font-size: 1.25em;
 }
 #loginiz h1{
     font-size: 3em;
@@ -201,11 +201,11 @@ label{
 }
 .colorbtn{
     margin-top: 50px;
-    background-image: linear-gradient(to right,   red, #1BFC03);  
+    background-image: linear-gradient(to right,   red, #1BFC03);
     color: black;
 }
-.colorbtn:hover{  
-    background-image: linear-gradient(to right,   blue, #1BFC03);    
+.colorbtn:hover{
+    background-image: linear-gradient(to right,   blue, #1BFC03);
 }
 #Usuario, #Contra{
     border-bottom: 5px solid red;
@@ -217,7 +217,7 @@ label{
     outline: none;
     background-color: #dfe;
     border-radius: 20%;
-    border-bottom: 5px solid red;    
+    border-bottom: 5px solid red;
     color: #000;
     font-weight: 500;
 }
@@ -226,5 +226,23 @@ label{
     margin-left: 8%;
 }
 button{
-   margin-top: 2%;
+    margin-top: 2%;
+}
+
+/*----------------------*/
+
+#ColorVerde{
+    background-color: rgba(160, 255, 1, 0.5);
+    height: 90px;
+    margin-top: 3%;
+}
+#ColorAmarillo{
+    background-color: rgba(255, 235, 1, 0.5);
+    height: 90px;
+    margin-top: 3%;
+}
+#ColorRojo{
+    background-color: rgba(255, 1, 1, 0.5);
+    height: 90px;
+    margin-top: 3%;
 }
