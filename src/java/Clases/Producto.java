@@ -20,6 +20,16 @@ public class Producto {
     private String Descripcion;
     private int SubCategoria;
 
+    public Producto() {
+    }    
+
+    public Producto(int Id, String Nombre, int CantidadUnidad, int CatidadPaquete) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.CantidadUnidad = CantidadUnidad;
+        this.CatidadPaquete = CatidadPaquete;
+    } 
+    
     public int getId() {
         return Id;
     }

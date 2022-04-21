@@ -21,3 +21,33 @@ CREATE TABLE proveedorCategoria(
       ALTER TABLE proveedorCategoria
     ADD CONSTRAINT FRSCategora_Proveedor
     FOREIGN KEY (FRProveedor) REFERENCES proveedor(Id);
+
+/*21/4/22 agregar tabla pedido*/
+
+CREATE TABLE pedido(
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    FechaCreacion datetime not null,
+    Estado varchar(20) NOT null,
+    FechaCambioEstado datetime not null,
+    FKProveedor int not null
+    );
+    
+CREATE TABLE Pedidoproducto(
+    Id int PRIMARY KEY AUTO_INCREMENT,
+    FRPedido int NOT null,  
+    FRProducto int NOT null,
+    CantidadPauqete int not null,
+    CantidadUnidad int NOT null    
+    );
+    
+   ALTER TABLE pedido
+    ADD CONSTRAINT FRSPrveedor_
+    FOREIGN KEY (FKProveedor) REFERENCES proveedor(Id);
+    
+    ALTER TABLE Pedidoproducto
+    ADD CONSTRAINT FRSPedido_
+    FOREIGN KEY (FRPedido) REFERENCES pedido(Id);
+    
+    ALTER TABLE Pedidoproducto
+    ADD CONSTRAINT FRSProducto_
+    FOREIGN KEY (FRProducto) REFERENCES producto(Id);

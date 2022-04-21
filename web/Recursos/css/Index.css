@@ -31,7 +31,7 @@ body{
     -wabkit-animation-display: 0.5s;
     -wabkit-animation-iteration-count: infinite;
     -wabkit-animation-direction: alternate-reverse;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 @keyframes rebote {
@@ -104,7 +104,7 @@ body{
     -wabkit-animation-display: 0.5s;
     -wabkit-animation-iteration-count: infinite;
     -wabkit-animation-direction: alternate-reverse;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 @keyframes rebote2 {
     0%   {
@@ -232,17 +232,21 @@ button{
 /*----------------------*/
 
 #ColorVerde{
-    background-color: rgba(160, 255, 1, 0.5);
-    height: 90px;
+    background-color: rgba(160, 255, 1, 0.5);    
     margin-top: 3%;
 }
 #ColorAmarillo{
-    background-color: rgba(255, 235, 1, 0.5);
-    height: 90px;
+    background-color: rgba(255, 235, 1, 0.5);   
     margin-top: 3%;
 }
 #ColorRojo{
-    background-color: rgba(255, 1, 1, 0.5);
-    height: 90px;
+    background-color: rgba(255, 1, 1, 0.5);    
     margin-top: 3%;
+}
+/*-----------------*/
+.page-item.disabled .page-link {
+    background-color:  rgba(255, 1, 1, 0.5);    
+}
+.page-item.active .page-link {
+    background-color:  rgba(255, 1, 185, 0.5);   
 }

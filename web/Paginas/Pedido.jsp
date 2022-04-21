@@ -14,14 +14,17 @@
         <p>Verde: Productos con buena catidad</p>
         <p>Amarillo: Productos que se les esta acabando</p>
         <p>Rojo: PRODUCTOS QUE NO TINE EN ESTE MOMENTO!</p>
+        <div class="d-flex justify-content-center mitad" id="btnp" >
+                    
+        </div> 
         <div id="ColorRojo">
-            
+
         </div>
         <div id="ColorAmarillo">
-            
+
         </div>
         <div id="ColorVerde">
-            
+
         </div>
     </div>
 </html>

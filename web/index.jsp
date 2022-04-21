@@ -20,6 +20,7 @@ Author     : ADMIN
        
         <script src="Recursos/js/jquery-3.4.1.js" type="text/javascript"></script>
         <script src="Recursos/bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="Recursos/js/datatables.min.js" type="text/javascript"></script>
         <script src="Recursos/js/InicioSeccion.js" type="text/javascript"></script>
         <script src="Recursos/js/RegistrarProductos.js" type="text/javascript"></script>
         <script src="Recursos/js/Alertas.js" type="text/javascript"></script>
@@ -29,6 +30,7 @@ Author     : ADMIN
         <script src="Recursos/select/js/bootstrap-multiselect.js" type="text/javascript"></script>
         <script src="Recursos/select/js/select2.js" type="text/javascript"></script>
         <script src="Recursos/js/Pedido.js" type="text/javascript"></script>
+        
         
         </head>
     <body>
@@ -55,7 +57,7 @@ Author     : ADMIN
                             <button class="btn btnMenuP" id="Estadobtn3"><img src="Imagenes/Proveedor.png"></button>                        
                         </div>  
                         <div class="d-flex justify-content-center" id="btnMenuP3D">
-                            <p class="Texto" id="Texto3">Registrar productos</p>         
+                            <p class="Texto" id="Texto3">Registrar proveedor</p>         
                         </div>
                     </li>
                     <li class="nav-item"  id="btnMenuP4">

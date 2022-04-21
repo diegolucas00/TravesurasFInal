@@ -58,6 +58,10 @@
         <servlet-name>TraerProductosFaltantes</servlet-name>
         <servlet-class>Controlador.TraerProductosFaltantes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarPedido</servlet-name>
+        <servlet-class>Controlador.RegistrarPedido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -109,6 +113,10 @@
     <servlet-mapping>
         <servlet-name>TraerProductosFaltantes</servlet-name>
         <url-pattern>/TraerProductosFaltantes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarPedido</servlet-name>
+        <url-pattern>/RegistrarPedido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
