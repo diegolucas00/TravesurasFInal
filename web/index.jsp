@@ -30,7 +30,7 @@ Author     : ADMIN
         <script src="Recursos/select/js/bootstrap-multiselect.js" type="text/javascript"></script>
         <script src="Recursos/select/js/select2.js" type="text/javascript"></script>
         <script src="Recursos/js/Pedido.js" type="text/javascript"></script>
-        
+        <script src="Recursos/js/Factura.js" type="text/javascript"></script>
         
         </head>
     <body>
@@ -40,16 +40,13 @@ Author     : ADMIN
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
+                <ul class="navbar-nav">                    
                     <li class="nav-item"  id="btnMenuP2">
                         <div class="d-flex justify-content-center" id="DivEstadobtn2">
                             <button class="btn btnMenuP" id="Estadobtn2"><img src="Imagenes/Registrar.png"></button>                        
                         </div>  
                         <div class="d-flex justify-content-center" id="btnMenuP2D">
-                            <p class="Texto" id="Texto2">Registrar productos</p>         
+                            <p class="Texto" id="Texto2">Productos</p>         
                         </div>
                     </li>
                     <li class="nav-item"  id="btnMenuP3">
@@ -57,7 +54,7 @@ Author     : ADMIN
                             <button class="btn btnMenuP" id="Estadobtn3"><img src="Imagenes/Proveedor.png"></button>                        
                         </div>  
                         <div class="d-flex justify-content-center" id="btnMenuP3D">
-                            <p class="Texto" id="Texto3">Registrar proveedor</p>         
+                            <p class="Texto" id="Texto3">Proveedor</p>         
                         </div>
                     </li>
                     <li class="nav-item"  id="btnMenuP4">
@@ -67,13 +64,16 @@ Author     : ADMIN
                         <div class="d-flex justify-content-center" id="btnMenuP4D">
                             <p class="Texto" id="Texto4">Pedido</p>         
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    </li>                    
+                    <li class="nav-item"  id="btnMenuP5">
+                        <div class="d-flex justify-content-center" id="DivEstadobtn5">
+                            <button class="btn btnMenuP" id="Estadobtn5"><img src="Imagenes/Factura.png"></button>                        
+                        </div>  
+                        <div class="d-flex justify-content-center" id="btnMenuP5D">
+                            <p class="Texto" id="Texto5">Factura</p>         
+                        </div>
+                    </li>                    
+                                  
                 </ul>
             </div>   
         </nav>
