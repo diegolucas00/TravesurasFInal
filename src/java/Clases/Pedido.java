@@ -21,7 +21,27 @@ public class Pedido {
     private Date FechaCambioEstado;
     private ArrayList CantidadPauqete;
     private ArrayList CantidadUnidad;
+    private String Proveedor;
 
+    public Pedido() {
+    }    
+
+    public Pedido(int Id, Date FechaCreacion, String Estado, Date FechaCambioEstado, String Proveedor) {
+        this.Id = Id;
+        this.FechaCreacion = FechaCreacion;
+        this.Estado = Estado;
+        this.FechaCambioEstado = FechaCambioEstado;
+        this.Proveedor = Proveedor;
+    }
+
+    public String getProveedor() {
+        return Proveedor;
+    }
+
+    public void setProveedor(String Proveedor) {
+        this.Proveedor = Proveedor;
+    }
+    
     public ArrayList getId2() {
         return Id2;
     }

@@ -14,7 +14,7 @@
         <div id="selectproveedor">
             
         </div>
-        <table class="table table-sm" id="TablaProductos">
+        <table class="table table-hover" id="TablaProductos">
             <thead>
                 <tr>
                     <td scope="col">ID</td>
@@ -28,7 +28,7 @@
 
             </tbody>
         </table>
-        <table class="table table-sm table-dark" id="TablaPedido">
+        <table class="table table-hover table-dark" id="TablaPedido">
             <thead>
                 <tr>
                     <td scope="col">ID</td>

@@ -5,6 +5,8 @@
 package ClaseDAO;
 
 import Clases.Pedido;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -101,4 +103,54 @@ public class PedidoDAO extends Conexion.Conexion {
 
         return resultado;
     }
+     public JsonArray ListadoPedio() {
+        JsonArray listadoeven = new JsonArray();
+        Pedido pedido;
+        String sentencia = "SELECT p.*, pr.NombreEmpresa FROM `pedido` AS p INNER JOIN proveedor AS pr  ON p.FKProveedor = pr.Id;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    pedido = new Pedido(res.getInt("Id"),res.getDate("FechaCreacion"),res.getString("Estado"),res.getDate("FechaCambioEstado"),res.getString("NombreEmpresa"));
+                    listadoeven.add(new Gson().toJsonTree(pedido));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
+    }
+     public JsonArray PedidoTotal(int id) {
+        JsonArray listadoeven = new JsonArray();
+        PedidoProductos pedidoproductos;
+        String sentencia = "SELECT pe.*, pro.Nombre  FROM `pedidoproducto` AS pe INNER JOIN producto AS pro ON pe.FRProducto = pro.Id WHERE FRPedido = ?;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                PST.setInt(1, id);
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    pedidoproductos = new PedidoProductos(res.getInt("Id"),res.getInt("FRPedido"), res.getInt("CantidadPauqete"), res.getInt("CantidadUnidad"),res.getString("Nombre"));
+                    listadoeven.add(new Gson().toJsonTree(pedidoproductos));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
+    }
+    
 }

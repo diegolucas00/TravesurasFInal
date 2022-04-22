@@ -62,6 +62,14 @@
         <servlet-name>RegistrarPedido</servlet-name>
         <servlet-class>Controlador.RegistrarPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaPedido</servlet-name>
+        <servlet-class>Controlador.ListaPedido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidoCompleto</servlet-name>
+        <servlet-class>Controlador.PedidoCompleto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -117,6 +125,14 @@
     <servlet-mapping>
         <servlet-name>RegistrarPedido</servlet-name>
         <url-pattern>/RegistrarPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaPedido</servlet-name>
+        <url-pattern>/ListaPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidoCompleto</servlet-name>
+        <url-pattern>/PedidoCompleto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

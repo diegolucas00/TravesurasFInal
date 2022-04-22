@@ -165,9 +165,19 @@ $(document).ready(function () {
             btn.click(function () {
                 CrearPedido();
             });
+
+            let btn2 = $("<button>");
+            btn2.addClass("btn btn-success");
+            btn2.html("Ver pedidos");
+            $("#btnp").append(btn2);
+            btn2.click(function () {
+                ListaPedidoT();
+            });
         };
         ajax(ir_a, llevar, hacer);
     };
+
+
 
     const CrearPedido = () => {
         let ir_a = "Paginas/RegistrarPedido.jsp";
@@ -257,7 +267,7 @@ $(document).ready(function () {
                                 type: 'error',
                                 title: 'Oops...',
                                 background: 'linear-gradient(#2BD9DD , #6ACF28)',
-                                html: 'Los contadoras deben ser mañor a CERO'
+                                html: 'Los contadoras deben ser mayor a CERO'
                             });
                         }
                     } else {
@@ -302,7 +312,7 @@ $(document).ready(function () {
         td3.append(input2);
         tr.append(td3);
         let td4 = $("<td>");
-        td4.attr("id", "CanU" + elemento.Id);        
+        td4.attr("id", "CanU" + elemento.Id);
         td4.html(CantidadU);
         let input3 = $("<input>");
         input3.addClass("datospcu");
@@ -369,5 +379,85 @@ $(document).ready(function () {
         };
         ajax(ir_a, llevar, hacer);
 
+    };
+
+    const ListaPedidoT = () => {
+        let ir_a = "Paginas/ListaPedido.jsp";
+        let llevar;
+        let hacer = (data) => {
+            $("#datos").html(data);
+            ListadoPedidoT2();
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+    const ListadoPedidoT2 = () => {
+        let ir_a = "ListaPedido";
+        let llevar;
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            dato.forEach(elemento => {
+                let tr = $("<tr>");
+                let td = $("<td>");
+                td.html(elemento.Id);
+                tr.append(td);
+                let td2 = $("<td>");
+                td2.html(elemento.Proveedor);
+                tr.append(td2);
+                let td3 = $("<td>");
+                td3.html(elemento.FechaCreacion);
+                tr.append(td3);
+                let td4 = $("<td>");
+                td4.html(elemento.Estado);
+                tr.append(td4);
+                let td5 = $("<td>");
+                td5.html(elemento.FechaCambioEstado);
+                tr.append(td5);
+                let td6 = $("<td>");
+                let btn = $("<button>");
+                btn.addClass("btn btn-success");
+                btn.html("Pedido Completo");
+                td6.append(btn);
+                tr.append(td6);
+                btn.click(function () {
+                    PedidoCompleto(elemento.Id);
+                });
+                $("#TablaPedidotbody").append(tr);
+            });
+            $("#TablaPedido").dataTable();
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+    
+    const PedidoCompleto = (Id) => {
+        let ir_a = "PedidoCompleto";
+        let llevar = {
+            id: Id
+        };
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            $("#TablaPedidosTotaltbody").html("");
+            dato.forEach(elemento => {
+                let tr = $("<tr>");
+                let td = $("<td>");
+                td.html(elemento.Id);
+                tr.append(td);
+                let td2 = $("<td>");
+                td2.html(elemento.FRPedido);
+                tr.append(td2);
+                let td3 = $("<td>");
+                td3.html(elemento.Producto);
+                tr.append(td3);
+                let td4 = $("<td>");
+                td4.html(elemento.CantidadPaquete);
+                tr.append(td4);
+                let td5 = $("<td>");
+                td5.html(elemento.CantidadUnidad);
+                tr.append(td5);
+                
+                $("#TablaPedidosTotaltbody").append(tr);
+            });
+            $("#TablaPedidosTotal").dataTable();
+        };
+        ajax(ir_a, llevar, hacer);
     };
 });
