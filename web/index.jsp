@@ -70,9 +70,17 @@ Author     : ADMIN
                             <button class="btn btnMenuP" id="Estadobtn5"><img src="Imagenes/Factura.png"></button>                        
                         </div>  
                         <div class="d-flex justify-content-center" id="btnMenuP5D">
-                            <p class="Texto" id="Texto5">Factura</p>         
+                            <p class="Texto" id="Texto5">Factura Pedido</p>         
                         </div>
-                    </li>                    
+                    </li> 
+                      <li class="nav-item"  id="btnMenuP6">
+                        <div class="d-flex justify-content-center" id="DivEstadobtn6">
+                            <button class="btn btnMenuP" id="Estadobtn6"><img src="Imagenes/Factura.png"></button>                        
+                        </div>  
+                        <div class="d-flex justify-content-center" id="btnMenuP6D">
+                            <p class="Texto" id="Texto6">Factura Cliente</p>         
+                        </div>
+                    </li>
                                   
                 </ul>
             </div>   

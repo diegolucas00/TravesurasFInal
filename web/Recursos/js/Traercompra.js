@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
+
 $(document).ready(function () {
-    const ajax = (ir_a, llevar, hacer) => {
+     const ajax = (ir_a, llevar, hacer) => {
         $.ajax({
             url: ir_a,
             encoding: "UTF-8",
@@ -24,24 +25,6 @@ $(document).ready(function () {
             }
         });
     };
-    $("#ingresar").click(function () {
-        let ir_a = "Paginas/Catalogo.jsp";
-        let llevar;
-        let hacer = (data) => {
-            $("#datos").html(data);         
-
-        };
-        ajax(ir_a, llevar, hacer);
-    });
-    $("#MenuLogoP").click(function () {
-        let ir_a = "Paginas/Catalogo.jsp";
-        let llevar;
-        let hacer = (data) => {
-            $("#datos").html(data);         
-
-        };
-        ajax(ir_a, llevar, hacer);
-    });
-
+    
+    
 });
-

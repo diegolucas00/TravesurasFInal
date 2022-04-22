@@ -70,6 +70,10 @@
         <servlet-name>PedidoCompleto</servlet-name>
         <servlet-class>Controlador.PedidoCompleto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Traercompra</servlet-name>
+        <servlet-class>Controlador.Traercompra</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -133,6 +137,10 @@
     <servlet-mapping>
         <servlet-name>PedidoCompleto</servlet-name>
         <url-pattern>/PedidoCompleto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Traercompra</servlet-name>
+        <url-pattern>/Traercompra</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

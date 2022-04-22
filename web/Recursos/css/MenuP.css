@@ -90,6 +90,17 @@ nav{
 #btnMenuP5:hover #Texto5{
     opacity: 1;   
 }
+#btnMenuP6D{
+    height: 0px;
+    transition: height .4s;
+}
+
+#btnMenuP6:hover #btnMenuP6D{
+    height: 40px;    
+}
+#btnMenuP6:hover #Texto6{
+    opacity: 1;   
+}
 .Activo{
     background-image: linear-gradient(to right,   blue, #1BFC03); 
 }

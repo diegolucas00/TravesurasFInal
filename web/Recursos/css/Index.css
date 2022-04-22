@@ -33,7 +33,7 @@ body{
     -wabkit-animation-direction: alternate-reverse;
     opacity: 0.3;
 }
-
+/*<---Animación------>*/
 @keyframes rebote {
     0%   {
         transform: translate(0, 0)
@@ -106,6 +106,7 @@ body{
     -wabkit-animation-direction: alternate-reverse;
     opacity: 0.3;
 }
+/*<---Animación------>*/
 @keyframes rebote2 {
     0%   {
         transform: translate(0, 0)
@@ -165,6 +166,7 @@ body{
         color: #000;
     }
 }
+/*<---Index--->*/
 #Containerlogin{
     margin-left: 10%;
     margin-right: 10%;
@@ -229,7 +231,7 @@ button{
     margin-top: 2%;
 }
 
-/*----------------------*/
+/*-----------Css Tabla Pedido-----------*/
 
 #ColorVerde{
     background-color: rgba(160, 255, 1, 0.5);    
