@@ -102,6 +102,10 @@
         <servlet-name>TraerProductoDiponible</servlet-name>
         <servlet-class>Controlador.TraerProductoDiponible</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>Controlador.ListadoProductosdis</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -197,6 +201,10 @@
     <servlet-mapping>
         <servlet-name>TraerProductoDiponible</servlet-name>
         <url-pattern>/TraerProductoDiponible</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

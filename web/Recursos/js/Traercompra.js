@@ -4,7 +4,7 @@
  */
 
 $(document).ready(function () {
-     const ajax = (ir_a, llevar, hacer) => {
+    const ajax = (ir_a, llevar, hacer) => {
         $.ajax({
             url: ir_a,
             encoding: "UTF-8",
@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
         });
     };
-        $("#Estadobtn6").click(function () {
+    $("#Estadobtn6").click(function () {
         ListaFacturaT();
     });
 
@@ -34,13 +34,13 @@ $(document).ready(function () {
         let llevar;
         let hacer = (data) => {
             $("#datos").html(data);
-             Productos();
+            Productos();
         };
         ajax(ir_a, llevar, hacer);
     };
-    
+
     const Productos = () => {
-        let ir_a = "ListadoProductosdisponibles";
+        let ir_a = "ListadoProductosdis";
         let llevar;
         let hacer = (data) => {
             const dato = JSON.parse(data);
@@ -109,7 +109,7 @@ $(document).ready(function () {
         };
         ajax(ir_a, llevar, hacer);
     };
-    
+
     const ListaPedido = (elemento, cantidadP, CantidadU) => {
         let tr = $("<tr>");
         tr.attr("id", "tr" + elemento.Id);
@@ -157,9 +157,9 @@ $(document).ready(function () {
         $("#TablaPedido").append(tr);
 
     };
-    
-    
-     const CrearPedido = () => {
+
+
+    const CrearPedido = () => {
         let ir_a = "Paginas/RegistrarPedido.jsp";
         let llevar;
         let hacer = (data) => {
@@ -177,8 +177,8 @@ $(document).ready(function () {
         };
         ajax(ir_a, llevar, hacer);
     };
-    
-     const RegistarPedido = () => {
+
+    const RegistarPedido = () => {
         let ID = "";
         let CantidadP = "";
         let CantidadU = "";
@@ -223,5 +223,5 @@ $(document).ready(function () {
         ajax(ir_a, llevar, hacer);
 
     };
-  
+
 });
