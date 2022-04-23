@@ -94,6 +94,10 @@
         <servlet-name>RegistroPago</servlet-name>
         <servlet-class>Controlador.RegistroPago</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Inicioseesion</servlet-name>
+        <servlet-class>Controlador.Inicioseesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -181,6 +185,10 @@
     <servlet-mapping>
         <servlet-name>RegistroPago</servlet-name>
         <url-pattern>/RegistroPago</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Inicioseesion</servlet-name>
+        <url-pattern>/Inicioseesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

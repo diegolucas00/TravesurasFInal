@@ -25,22 +25,42 @@ $(document).ready(function () {
         });
     };
     $("#ingresar").click(function () {
-        let ir_a = "Paginas/Catalogo.jsp";
-        let llevar;
+        let ir_a = "Inicioseesion";
+        let llevar = {
+            usuario: $("#Usuario").val(),
+            contra: $("#Contra").val()
+        };
         let hacer = (data) => {
-            $("#datos").html(data);         
+            if (data === "Ok") {
+                swal({
+                    type: 'success',
+                    icon: 'success',
+                    title: 'Completo',
+                    background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                    html: '!BIENBENIDO!'
+                });
+                setTimeout(function () {
+                    location.reload(1);
+                }, 2000);
+                CATALOGO();
+            } else {
+                swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                    html: 'Error:' + data
+                });
+            }
 
         };
         ajax(ir_a, llevar, hacer);
     });
-    $("#MenuLogoP").click(function () {
-        let ir_a = "Paginas/Catalogo.jsp";
-        let llevar;
-        let hacer = (data) => {
-            $("#datos").html(data);         
 
-        };
-        ajax(ir_a, llevar, hacer);
+
+    $("#MenuLogoP").click(function () {
+        setTimeout(function () {
+            location.reload(1);
+        }, 2000);
     });
 
 });

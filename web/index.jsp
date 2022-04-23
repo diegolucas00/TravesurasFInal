@@ -17,7 +17,7 @@ Author     : ADMIN
         <link href="Recursos/css/RegistrarProducto.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/select/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css"/>
         <link href="Recursos/select/css/select2.css" rel="stylesheet" type="text/css"/>
-      
+
         <script src="Recursos/js/jquery-3.4.1.js" type="text/javascript"></script>
         <script src="Recursos/bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="Recursos/js/datatables.min.js" type="text/javascript"></script>
@@ -32,9 +32,14 @@ Author     : ADMIN
         <script src="Recursos/select/js/select2.js" type="text/javascript"></script>
         <script src="Recursos/js/Pedido.js" type="text/javascript"></script>
         <script src="Recursos/js/Factura.js" type="text/javascript"></script>
-        
-        </head>
+
+    </head>
     <body>
+        <%
+            HttpSession sesion = request.getSession();
+            String rol = String.valueOf(session.getAttribute("rol"));
+            if (rol.equals("1")) {
+        %>
         <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="#" id="MenuLogoP"><img  src="Imagenes/LOGO.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +79,7 @@ Author     : ADMIN
                             <p class="Texto" id="Texto5">Factura Pedido</p>         
                         </div>
                     </li> 
-                      <li class="nav-item"  id="btnMenuP6">
+                    <li class="nav-item"  id="btnMenuP6">
                         <div class="d-flex justify-content-center" id="DivEstadobtn6">
                             <button class="btn btnMenuP" id="Estadobtn6"><img src="Imagenes/Compra.png"></button>                        
                         </div>  
@@ -82,10 +87,13 @@ Author     : ADMIN
                             <p class="Texto" id="Texto6">Factura Cliente</p>         
                         </div>
                     </li>
-                                  
+
                 </ul>
             </div>   
         </nav>
+        <%
+            }else{
+        %>
         <div class="center" id="datos">
             <div class="container" id="Containerlogin">
                 <div class="row">
@@ -114,6 +122,15 @@ Author     : ADMIN
                     </div>
                 </div>
             </div>
+            <%
+                }if (rol.equals("1")) {
+            %>
+            <div class="d-flex justify-content-center mitad" >
+                <h1 class="titulo">!BIENBENIDO!</h1>                      
+            </div>
+            <%
+                }
+            %>
         </div>       
         <div id="reboto">               
         </div>
