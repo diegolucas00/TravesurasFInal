@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
         });
     };
-            $("#Estadobtn6").click(function () {
+        $("#Estadobtn6").click(function () {
         ListaFacturaT();
     });
 
@@ -42,49 +42,27 @@ $(document).ready(function () {
         let ir_a = "Traercompra";
         let llevar;
         let hacer = (data) => {
-            const dato = JSON.parse(data); 
-            $("#TablaClitbody").html("");
+            const dato = JSON.parse(data);
             dato.forEach(elemento => {
-                let tr = $("<tr>"); 
+                let tr = $("<tr>");
                 let td = $("<td>");
                 td.html(elemento.Id_Factura);
                 let input11 = $("<input>");
-                input11.addClass("form-control Id_Factura");
+                input11.addClass("form-control Factura");
                 input11.val(elemento.Id_Factura);
                 input11.attr("type", "number");
-                input11.attr("id", "Id_Factura");
+                input11.attr("id", "Factura");
                 input11.hide();
                 td.append(input11);
                 tr.append(td);
                 let td2 = $("<td>");
                 td2.html(elemento.Cliente);
-                let input11 = $("<input>");
-                input11.addClass("form-control Cliente");
-                input11.val(elemento.Cliente);
-                input11.attr("type", "number");
-                input11.attr("id", "Cliente");
-                input11.hide();
-                td2.append(input11);
                 tr.append(td2);
                 let td3 = $("<td>");
                 td3.html(elemento.Valor);
-                let input11 = $("<input>");
-                input11.addClass("form-control Valor");
-                input11.val(elemento.Valor);
-                input11.attr("type", "number");
-                input11.attr("id", "Valor");
-                input11.hide();
-                td3.append(input11);
                 tr.append(td3);
                 let td4 = $("<td>");
                 td4.html(elemento.Estado);
-                let input11 = $("<input>");
-                input11.addClass("form-control Estado");
-                input11.val(elemento.Estado);
-                input11.attr("type", "number");
-                input11.attr("id", "Estado");
-                input11.hide();
-                td4.append(input11);
                 tr.append(td4);
                 let td5 = $("<td>");
                 let btn = $("<button>");
@@ -93,7 +71,8 @@ $(document).ready(function () {
                 td5.append(btn);
                 tr.append(td5);
                 btn.click(function () {
-                    RegistarPedido();
+                    RegistroPago();
+                    tr.remove();
                 });
                 $("#TablaClitbody").append(tr);
             });
@@ -102,15 +81,35 @@ $(document).ready(function () {
         ajax(ir_a, llevar, hacer);
     };
     
-    const RegistarPedido = () => {
-         $("#datos").html(data);
-        let Id_Factura = "";
-        $(".datosId_Factura").each(function () {
-            ID += $(this).val() + ";";
-        });
+    const RegistroPago = () => {
         let ir_a = "RegistroPago";
+        let Id_Factura = "";
+        $(".Factura").each(function () {
+            Id_Factura += $(this).val() ;
+        });
         let llevar = {
-            id: Id_Factura,
+            Id_Factura: Id_Factura
+        };
+        let hacer = (data) => {
+          if (data === "OK") {
+                swal({
+                    type: 'success',
+                    icon: 'success',
+                    title: 'Completo',
+                    background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                    html: 'La Factura ya quedo pagada'
+                });
+                setTimeout(function () {
+                    location.reload(1);
+                }, 2000);
+            } else {
+                swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    background: 'linear-gradient(#2BD9DD , #6ACF28)',
+                    html: 'Error:' + data
+                });
+            }  
         };
         ajax(ir_a, llevar, hacer);
     };

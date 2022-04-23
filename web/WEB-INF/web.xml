@@ -90,6 +90,10 @@
         <servlet-name>FacturaCompleta</servlet-name>
         <servlet-class>Controlador.FacturaCompleta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistroPago</servlet-name>
+        <servlet-class>Controlador.RegistroPago</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -173,6 +177,10 @@
     <servlet-mapping>
         <servlet-name>FacturaCompleta</servlet-name>
         <url-pattern>/FacturaCompleta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistroPago</servlet-name>
+        <url-pattern>/RegistroPago</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

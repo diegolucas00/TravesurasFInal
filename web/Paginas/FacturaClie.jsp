@@ -22,7 +22,6 @@
                 </tr>
             </thead>
             <tbody id="TablaClitbody">
-
             </tbody>
         </table>
     </div>

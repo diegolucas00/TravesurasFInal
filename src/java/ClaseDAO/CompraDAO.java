@@ -49,14 +49,16 @@ public class CompraDAO extends Conexion.Conexion {
      public String RegistroPago( Compra Fact) {
         String resultado = "Error";
         String sentencia = "UPDATE `factura` SET "
-                + "`Estado='Pago'"
-                + " WHERE Id_Factura = ?";
+                + "`Estado`='Pago'"
+                + " WHERE Id_Factura =?";
+        
         if (this.Connexion()) {
             try {
                 PST = super.sentences(sentencia);
-                PST.setString(1, Integer.toString(Fact.getId_Factura()));
+                PST.setInt(1, Fact.getId_Factura());
                 if (!PST.execute()) {
                     resultado = "OK";
+                    
                 } else {
                     resultado = "Error al registrarlo";
                 }
