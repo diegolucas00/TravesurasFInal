@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
         });
     };
-        $("#Estadobtn6").click(function () {
+            $("#Estadobtn6").click(function () {
         ListaFacturaT();
     });
 
@@ -42,10 +42,10 @@ $(document).ready(function () {
         let ir_a = "Traercompra";
         let llevar;
         let hacer = (data) => {
-            const dato = JSON.parse(data);
+            const dato = JSON.parse(data); 
             $("#TablaClitbody").html("");
             dato.forEach(elemento => {
-                let tr = $("<tr>");
+                let tr = $("<tr>"); 
                 let td = $("<td>");
                 td.html(elemento.Id_Factura);
                 let input11 = $("<input>");
