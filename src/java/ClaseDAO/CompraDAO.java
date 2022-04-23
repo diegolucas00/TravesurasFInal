@@ -31,8 +31,8 @@ public class CompraDAO extends Conexion.Conexion {
                 PST = super.sentences(sentencia);
                 ResultSet res = PST.executeQuery();
                 while (res.next()) {
-                    factura = new Compra(res.getInt("Id_Factura"),res.getString("Cliente"),res.getFloat("Valor"), res.getString("Estado"));
-                    listadoeven.add(new Gson().toJsonTree(factura));
+               /*  factura = new Compra(res.getInt("Id_Factura"),res.getString("Cliente"),res.getFloat("Valor"), res.getString("Estado"));
+                    listadoeven.add(new Gson().toJsonTree(factura));*/
                 }
                 super.cerrar();
             } catch (SQLException ex) {

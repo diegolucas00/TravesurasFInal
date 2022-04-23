@@ -4,8 +4,7 @@
  */
 package Controlador;
 
-import ClaseDAO.CompraDAO;
-import Clases.Compra;
+import ClaseDAO.ProductoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author helen
  */
-public class RegistroPago extends HttpServlet {
+public class TraerProductoDiponible extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,6 +46,7 @@ public class RegistroPago extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+     
     }
 
     /**
@@ -63,12 +63,11 @@ public class RegistroPago extends HttpServlet {
         processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             Compra Fact = new Compra();
-            CompraDAO Compradao = new CompraDAO();
-            String Id_Factura = request.getParameter("Id_Factura"); 
-            /*Fact.setId((Integer.parseInt(request.getParameter("Id_Factura")));*/
-            out.print(Compradao.RegistroPago(Fact));
+             ProductoDAO productodao = new ProductoDAO();
+            
+            out.print(productodao.ListadoProductosdisponibles());
         }
+
     }
 
     /**

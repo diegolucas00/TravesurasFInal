@@ -98,6 +98,10 @@
         <servlet-name>Inicioseesion</servlet-name>
         <servlet-class>Controlador.Inicioseesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TraerProductoDiponible</servlet-name>
+        <servlet-class>Controlador.TraerProductoDiponible</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -189,6 +193,10 @@
     <servlet-mapping>
         <servlet-name>Inicioseesion</servlet-name>
         <url-pattern>/Inicioseesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraerProductoDiponible</servlet-name>
+        <url-pattern>/TraerProductoDiponible</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
