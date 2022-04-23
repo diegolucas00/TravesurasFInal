@@ -5,18 +5,19 @@
 package Controlador;
 
 import ClaseDAO.CompraDAO;
+import Clases.Compra;
 import java.io.IOException;
 import java.io.PrintWriter;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author helen
  */
-public class Traercompra extends HttpServlet {
+public class RegistroPago extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,7 +31,6 @@ public class Traercompra extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,10 +60,13 @@ public class Traercompra extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+             Compra Fact = new Compra();
             CompraDAO Compradao = new CompraDAO();
-             out.print(Compradao.ListadoFactura().toString());
+            String Id_Factura = request.getParameter("Id_Factura"); 
+            Fact.setId_Factura(Integer.parseInt(request.getParameter("Id_Factura")));
+            out.print(Compradao.RegistroPago(Fact));
         }
     }
 
