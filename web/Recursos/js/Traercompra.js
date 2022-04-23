@@ -34,13 +34,13 @@ $(document).ready(function () {
         let llevar;
         let hacer = (data) => {
             $("#datos").html(data);
-            
+            Productos();
         };
         ajax(ir_a, llevar, hacer);
     };
 
     const Productos = () => {
-        let ir_a = "ListadoProductosdis";
+        let ir_a = "TraerProductosFaltantes1";
         let llevar;
         let hacer = (data) => {
             const dato = JSON.parse(data);

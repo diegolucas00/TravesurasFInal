@@ -124,8 +124,7 @@ Author     : ADMIN
                 </div>
                 <%}
                 %>
-            </div>
-            <%
+                 <%
                 
                 if (rol.equals("1")) {
             %>
@@ -135,6 +134,7 @@ Author     : ADMIN
             <%
                 }
             %>
+            </div>
         </div>       
         <div id="reboto">               
         </div>
