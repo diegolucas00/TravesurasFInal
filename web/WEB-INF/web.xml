@@ -78,6 +78,10 @@
         <servlet-name>RegistrarFactura</servlet-name>
         <servlet-class>Controlador.RegistrarFactura</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListadoPedidoEstado</servlet-name>
+        <servlet-class>Controlador.ListadoPedidoEstado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -149,6 +153,10 @@
     <servlet-mapping>
         <servlet-name>RegistrarFactura</servlet-name>
         <url-pattern>/RegistrarFactura</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoPedidoEstado</servlet-name>
+        <url-pattern>/ListadoPedidoEstado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

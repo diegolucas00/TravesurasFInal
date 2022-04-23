@@ -30,7 +30,7 @@ public class FacturaDAO extends Conexion.Conexion {
                 + "?,NOW(),"
                 + "?,?,"
                 + "?)";
-        int cantidadp = 0;      
+        int cantidadp = 0;
         int idproducto = 0;
         int valorp = 0;
         int cantidadu = 0;
@@ -54,18 +54,23 @@ public class FacturaDAO extends Conexion.Conexion {
                 if (!PST.execute()) {
                     resultado = "OK";
                     for (int i = 0; i < arraycantidadp.size(); i++) {
-                        cantidadp = arraycantidadp.get(i);                       
+                        cantidadp = arraycantidadp.get(i);
                         idproducto = arrayproducto.get(i);
                         valorp = arrayvalorp.get(i);
                         cantidadu = arraycantidadu.get(i);
                         valoru = arrayvaloru.get(i);
                         iva = arrayiva.get(i);
                         valortotal = arrayvalortotal.get(i);
-                        if (RegristrarFacturadetalle(idproducto,cantidadp,valorp,cantidadu,valoru,iva,valortotal)) {
+                        if (RegristrarFacturadetalle(idproducto, cantidadp, valorp, cantidadu, valoru, iva, valortotal)) {
                             resultado = "OK";
                         } else {
                             resultado = "Error pedido2";
                         }
+                    }
+                    if (RegistrarEstadoPedido(factura.getFRPedido().getId())) {
+                        resultado = "OK";
+                    } else {
+                        resultado = "Error pedido2";
                     }
                 } else {
                     resultado = "Error al registrarlo";
@@ -83,7 +88,8 @@ public class FacturaDAO extends Conexion.Conexion {
 
         return resultado;
     }
-    public boolean RegristrarFacturadetalle(int producto,int cantidadp, int valorp, int cantidadu,int valoru,int iva,int total){
+
+    public boolean RegristrarFacturadetalle(int producto, int cantidadp, int valorp, int cantidadu, int valoru, int iva, int total) {
         boolean resultado = false;
         String sentencia = "INSERT INTO `facturadetalle`(`Id`, `FRFacturaPedido`, `FRProducto`, "
                 + "`CantidadPaquete`, `ValorPaquete`, `CantidadUnidad`, `ValorUnidad`, `ValorIVA`, `ValorTotal`) "
@@ -101,7 +107,7 @@ public class FacturaDAO extends Conexion.Conexion {
                     numero = res.getInt("Id");
                 }
                 PST = super.sentences(sentencia);
-                PST.setInt(1, numero);              
+                PST.setInt(1, numero);
                 PST.setInt(2, producto);
                 PST.setInt(3, cantidadp);
                 PST.setInt(4, valorp);
@@ -109,6 +115,29 @@ public class FacturaDAO extends Conexion.Conexion {
                 PST.setInt(6, valoru);
                 PST.setInt(7, iva);
                 PST.setInt(8, total);
+                if (!PST.execute()) {
+                    resultado = true;
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = false;
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
+    public boolean RegistrarEstadoPedido(int numero) {
+        boolean resultado = false;
+        String sentencia = "UPDATE `pedido` SET `Estado`='APROVADO' WHERE Id = ?";        
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);     
+                PST.setInt(1, numero);
                 if (!PST.execute()) {
                     resultado = true;
                 }

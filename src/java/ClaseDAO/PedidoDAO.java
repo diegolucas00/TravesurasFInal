@@ -128,6 +128,30 @@ public class PedidoDAO extends Conexion.Conexion {
 
         return listadoeven;
     }
+    public JsonArray ListadoPedioEstado() {
+        JsonArray listadoeven = new JsonArray();
+        Pedido pedido;
+        String sentencia = "SELECT p.*, pr.NombreEmpresa FROM `pedido` AS p INNER JOIN proveedor AS pr  ON p.FKProveedor = pr.Id where p.Estado like 'EN PROCESO';";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    pedido = new Pedido(res.getInt("Id"), res.getDate("FechaCreacion"), res.getString("Estado"), res.getDate("FechaCambioEstado"), res.getString("NombreEmpresa"));
+                    listadoeven.add(new Gson().toJsonTree(pedido));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
+    }
 
     public JsonArray PedidoTotal(int id) {
         JsonArray listadoeven = new JsonArray();

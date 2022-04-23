@@ -42,7 +42,7 @@ $(document).ready(function () {
         ajax(ir_a, llevar, hacer);
     };
     const ListadoPedidoT2 = () => {
-        let ir_a = "ListaPedido";
+        let ir_a = "ListadoPedidoEstado";
         let llevar;
         let hacer = (data) => {
             const dato = JSON.parse(data);
