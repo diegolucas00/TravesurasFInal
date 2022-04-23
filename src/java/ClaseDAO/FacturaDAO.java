@@ -6,6 +6,7 @@ package ClaseDAO;
 
 import Clases.Factura;
 import Clases.FacturaDetalle;
+import Clases.FacturaDetalle2;
 import Clases.Pedido;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -133,10 +134,10 @@ public class FacturaDAO extends Conexion.Conexion {
 
     public boolean RegistrarEstadoPedido(int numero) {
         boolean resultado = false;
-        String sentencia = "UPDATE `pedido` SET `Estado`='APROVADO' WHERE Id = ?";        
+        String sentencia = "UPDATE `pedido` SET `Estado`='APROVADO' WHERE Id = ?";
         if (this.Connexion()) {
             try {
-                PST = super.sentences(sentencia);     
+                PST = super.sentences(sentencia);
                 PST.setInt(1, numero);
                 if (!PST.execute()) {
                     resultado = true;
@@ -152,5 +153,55 @@ public class FacturaDAO extends Conexion.Conexion {
         }
 
         return resultado;
+    }
+
+    public JsonArray ListadoFacturaPedido() {
+        JsonArray listadoeven = new JsonArray();
+        Factura factura;
+        String sentencia = "SELECT * FROM `facturapedido` ;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    factura = new Factura(res.getInt("Id"), res.getInt("FRPedido"), res.getDate("FechaCreacion"), res.getInt("SubTotal"), res.getInt("IVA"), res.getInt("Total"));
+                    listadoeven.add(new Gson().toJsonTree(factura));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
+    }
+    public JsonArray ListadoFacturaPedidoCompleto(int numero) {
+        JsonArray listadoeven = new JsonArray();
+        FacturaDetalle2 factura;
+        String sentencia = "SELECT f.*,pro.Nombre FROM facturadetalle AS f INNER JOIN producto AS pro ON f.FRProducto = pro.Id WHERE f.FRFacturaPedido = ?;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);
+                PST.setInt(1, numero);
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    factura = new FacturaDetalle2(res.getInt("Id"), res.getInt("FRFacturaPedido"), res.getString("Nombre"), res.getInt("CantidadPaquete"), res.getInt("ValorPaquete"), res.getInt("CantidadUnidad"),res.getInt("ValorUnidad"),res.getInt("ValorIVA"),res.getInt("ValorTotal"));
+                    listadoeven.add(new Gson().toJsonTree(factura));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
     }
 }

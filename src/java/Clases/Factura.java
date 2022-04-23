@@ -13,12 +13,33 @@ import java.sql.Date;
  */
 public class Factura {
     private int Id;
+    private int FRPedido1;
     private Pedido FRPedido;
     private Date Fechadecreacion;
     private int SubTotal;
     private int IVA;
     private int total;
 
+    public Factura() {
+    }
+
+    public Factura(int Id, int FRPedido1, Date Fechadecreacion, int SubTotal, int IVA, int total) {
+        this.Id = Id;
+        this.FRPedido1 = FRPedido1;
+        this.Fechadecreacion = Fechadecreacion;
+        this.SubTotal = SubTotal;
+        this.IVA = IVA;
+        this.total = total;
+    }
+
+    public int getFRPedido1() {
+        return FRPedido1;
+    }
+
+    public void setFRPedido1(int FRPedido1) {
+        this.FRPedido1 = FRPedido1;
+    }
+    
     public int getId() {
         return Id;
     }

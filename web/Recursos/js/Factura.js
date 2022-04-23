@@ -38,9 +38,112 @@ $(document).ready(function () {
             $(".btnMenuP").removeClass("Activo");
             $("#Estadobtn5").addClass("Activo");
             ListadoPedidoT2();
+            let btn = $("<button>");
+            btn.addClass("btn btn-warning");
+            btn.html("Ver mas");
+            $("#facturadiv").append(btn);
+            btn.click(function () {
+                jspvermas();
+            });
         };
         ajax(ir_a, llevar, hacer);
     };
+
+    const jspvermas = () => {
+        let ir_a = "Paginas/FacturaVerMas.jsp";
+        let llevar;
+        let hacer = (data) => {
+            $("#datos").html(data);
+            vermas();
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+
+    const vermas = () => {
+        let ir_a = "VerFacturasPedidos";
+        let llevar;
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            dato.forEach(elemento => {
+                let tr = $("<tr>");
+                let td = $("<td>");
+                td.html(elemento.Id);
+                tr.append(td);
+                let td2 = $("<td>");
+                td2.html(elemento.FRPedido1);
+                tr.append(td2);
+                let td3 = $("<td>");
+                td3.html(elemento.Fechadecreacion);
+                tr.append(td3);
+                let td4 = $("<td>");
+                td4.html(elemento.SubTotal);
+                tr.append(td4);
+                let td5 = $("<td>");
+                td5.html(elemento.IVA);
+                tr.append(td5);
+                let td7 = $("<td>");
+                td7.html(elemento.total);
+                tr.append(td7);
+                let td6 = $("<td>");
+                let btn = $("<button>");
+                btn.addClass("btn btn-success");
+                btn.html("Factura Completo");
+                td6.append(btn);
+                tr.append(td6);
+                btn.click(function () {
+                    FacturaCompleta(elemento.Id);
+                });
+                $("#TablaPedidotbody").append(tr);
+            });          
+            $("#TablaPedido").dataTable();
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+
+    const FacturaCompleta = (id) => {
+        let ir_a = "FacturaCompleta";
+        let llevar = {
+            Id: id
+        };
+        let hacer = (data) => {
+            const dato = JSON.parse(data);
+            dato.forEach(elemento => {
+                let tr = $("<tr>");
+                let td = $("<td>");
+                td.html(elemento.Id);
+                tr.append(td);
+                let td2 = $("<td>");
+                td2.html(elemento.FRFaturaPedido);
+                tr.append(td2);
+                let td3 = $("<td>");
+                td3.html(elemento.Producto);
+                tr.append(td3);
+                let td4 = $("<td>");
+                td4.html(elemento.CantidadPaquete);
+                tr.append(td4);
+                let td5 = $("<td>");
+                td5.html(elemento.ValorPaquete);
+                tr.append(td5);
+                let td7 = $("<td>");
+                td7.html(elemento.CantidadUnidad);
+                tr.append(td7);
+                let td8 = $("<td>");
+                td8.html(elemento.ValorUnidad);
+                tr.append(td8);
+                let td9 = $("<td>");
+                td9.html(elemento.ValorIVA);
+                tr.append(td9);
+                let td10 = $("<td>");
+                td10.html(elemento.ValorTotal);
+                tr.append(td10);
+                
+                $("#TablaPedidosTotaltbody").append(tr);
+            });
+            $("#TablaPedidosTotal").dataTable();
+        };
+        ajax(ir_a, llevar, hacer);
+    };
+
     const ListadoPedidoT2 = () => {
         let ir_a = "ListadoPedidoEstado";
         let llevar;
@@ -287,7 +390,7 @@ $(document).ready(function () {
             TOTALTAL: TOTALTAL,
             IVAT: IVAT,
             TOTALT: TOTALT,
-            Pedido:Pedido
+            Pedido: Pedido
         };
         let hacer = (data) => {
             if (data === "OK") {
