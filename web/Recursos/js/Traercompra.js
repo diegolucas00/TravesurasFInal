@@ -34,7 +34,7 @@ $(document).ready(function () {
         let llevar;
         let hacer = (data) => {
             $("#datos").html(data);
-            Productos();
+            
         };
         ajax(ir_a, llevar, hacer);
     };

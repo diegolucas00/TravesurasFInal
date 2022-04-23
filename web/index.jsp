@@ -91,10 +91,11 @@ Author     : ADMIN
                 </ul>
             </div>   
         </nav>
-        <%
-            }else{
-        %>
+
         <div class="center" id="datos">
+            <%
+            } else {
+            %>
             <div class="container" id="Containerlogin">
                 <div class="row">
                     <div class="col col-lg-6">
@@ -121,9 +122,12 @@ Author     : ADMIN
                         <button class="btn btn-info colorbtn" id="ingresar">Ingresar</button>
                     </div>
                 </div>
+                <%}
+                %>
             </div>
             <%
-                }if (rol.equals("1")) {
+                
+                if (rol.equals("1")) {
             %>
             <div class="d-flex justify-content-center mitad" >
                 <h1 class="titulo">!BIENBENIDO!</h1>                      
