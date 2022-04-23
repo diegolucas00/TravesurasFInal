@@ -55,7 +55,7 @@ public class CompraDAO extends Conexion.Conexion {
         if (this.Connexion()) {
             try {
                 PST = super.sentences(sentencia);
-                PST.setInt(1, Fact.getId_Factura());
+                PST.setInt(1, Fact.getId());
                 if (!PST.execute()) {
                     resultado = "OK";
                     

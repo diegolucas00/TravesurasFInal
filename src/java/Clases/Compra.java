@@ -3,50 +3,49 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Clases;
-
+import java.sql.Date;
 /**
  *
  * @author helen
  */
 public class Compra {
-
-    private int Id_Factura;
-    private String Cliente;
-    private Float Valor;
-    private String Estado;
-    
+    private int Id;
+    private Date Fecha_Creacion;
+    private Float Valor_Total;
+    private String  Estado;
+;
     public Compra() {
     }
     
-    public Compra(int Id_Factura,  String Cliente, Float Valor,String Estado) {
-        this.Id_Factura = Id_Factura;
-        this.Cliente = Cliente;
-        this.Valor = Valor;
+    public Compra(int Id, Date Fecha_Creacion, Float Valor_Total,String Estado) {
+        this.Id = Id;
+        this.Fecha_Creacion = Fecha_Creacion;
+        this.Valor_Total = Valor_Total;
         this.Estado= Estado;
     }
 
-    public int getId_Factura() {
-        return Id_Factura;
+    public int getId() {
+        return Id;
     }
 
-    public void setId_Factura(int Id_Factura) {
-        this.Id_Factura = Id_Factura;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
-    public String getCliente() {
-        return Cliente;
+    public Date getFecha_Creacion() {
+        return Fecha_Creacion;
     }
 
-    public void setCliente(String Cliente) {
-        this.Cliente = Cliente;
+    public void setFecha_Creacion(Date Fecha_Creacion) {
+        this.Fecha_Creacion = Fecha_Creacion;
     }
 
-    public Float getValor() {
-        return Valor;
+    public Float getValor_Total() {
+        return Valor_Total;
     }
 
-    public void setValor(Float Valor) {
-        this.Valor = Valor;
+    public void setValor_Total(Float Valor_Total) {
+        this.Valor_Total = Valor_Total;
     }
 
     public String getEstado() {

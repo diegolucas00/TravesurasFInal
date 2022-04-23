@@ -1,0 +1,2 @@
+CREATE TABLE `travesuras`.`factura` ( `Id` INT NOT NULL AUTO_INCREMENT , `Fecha_Creacion` DATE NOT NULL , `Estado` VARCHAR(20) NOT NULL , `Valor_Total` FLOAT NOT NULL , PRIMARY KEY (`Id`)) ENGINE = InnoDB;
+CREATE TABLE `travesuras`.`facturaproducto` ( `Id_Factura` INT NOT NULL , `Id_producto` INT NOT NULL , `CantidadPaquete` INT NOT NULL , `CantidadUnidad` INT NOT NULL , `PrecioUnidad` FLOAT NOT NULL , `Precio Paquete` FLOAT NOT NULL , `Total` INT NOT NULL , `ID` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`ID`)) ENGINE = InnoDB;

@@ -66,7 +66,7 @@ public class RegistroPago extends HttpServlet {
              Compra Fact = new Compra();
             CompraDAO Compradao = new CompraDAO();
             String Id_Factura = request.getParameter("Id_Factura"); 
-            Fact.setId_Factura(Integer.parseInt(request.getParameter("Id_Factura")));
+            Fact.setId((Integer.parseInt(request.getParameter("Id_Factura")));
             out.print(Compradao.RegistroPago(Fact));
         }
     }

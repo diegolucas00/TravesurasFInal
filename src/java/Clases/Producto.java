@@ -29,6 +29,15 @@ public class Producto {
         this.CantidadUnidad = CantidadUnidad;
         this.CatidadPaquete = CatidadPaquete;
     } 
+
+    public Producto(int Id, String Nombre, int ValorPaquete, int ValorUnidad, int CantidadUnidad, int CatidadPaquete) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.ValorPaquete = ValorPaquete;
+        this.ValorUnidad = ValorUnidad;
+        this.CantidadUnidad = CantidadUnidad;
+        this.CatidadPaquete = CatidadPaquete;
+    }
     
     public int getId() {
         return Id;

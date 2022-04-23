@@ -234,4 +234,28 @@ public class ProductoDAO extends Conexion.Conexion {
         return listadoeven;
     }
 
+    public JsonArray ListadoProductosdisponibles() {
+        JsonArray listadoeven = new JsonArray();
+        Producto prod;
+        String sentencia = "SELECT *FROM `producto`;";
+        if (this.Connexion()) {
+            try {
+                PST = super.sentences(sentencia);                
+                ResultSet res = PST.executeQuery();
+                while (res.next()) {
+                    prod = new Producto(res.getInt("Id"),res.getString("Nombre"), res.getInt("ValorPaquete"), res.getInt("ValorUnitario"),res.getInt("CantidadUnitario"),res.getInt("CantidadPaquete"));
+                    listadoeven.add(new Gson().toJsonTree(prod));
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                listadoeven.add(new Gson().toJsonTree(ex));
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            listadoeven.add(new Gson().toJsonTree(error));
+        }
+
+        return listadoeven;
+    }
 }
