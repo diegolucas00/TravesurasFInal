@@ -51,3 +51,59 @@ CREATE TABLE Pedidoproducto(
     ALTER TABLE Pedidoproducto
     ADD CONSTRAINT FRSProducto_
     FOREIGN KEY (FRProducto) REFERENCES producto(Id);
+/*----------------factura pedido-----------------------*/
+CREATE TABLE `facturapedido` (
+  `Id` int(11) NOT NULL,
+  `FRPedido` int(11) NOT NULL,
+  `FechaCreacion` date NOT NULL,
+  `SubTotal` int(11) NOT NULL,
+  `IVA` int(11) NOT NULL,
+  `Total` int(11) NOT NULL
+)
+
+CREATE TABLE `facturadetalle` (
+  `Id` int(11) NOT NULL,
+  `FRFacturaPedido` int(11) NOT NULL,
+  `FRProducto` int(11) NOT NULL,
+  `CantidadPaquete` int(11) NOT NULL,
+  `ValorPaquete` int(11) NOT NULL,
+  `CantidadUnidad` int(11) NOT NULL,
+  `ValorUnidad` int(11) NOT NULL,
+  `ValorIVA` int(11) NOT NULL,
+  `ValorTotal` int(11) NOT NULL
+) 
+
+ALTER TABLE `facturadetalle`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `FRFacturaPedido_` (`FRFacturaPedido`),
+  ADD KEY `FRProducto_` (`FRProducto`);
+
+ALTER TABLE `facturapedido`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `FRPedido_` (`FRPedido`);
+
+/*------------------usuario ---------------------------*/
+CREATE TABLE Persona (
+    Cedula int PRIMARY KEY,    
+    Nombres varchar(80) not null,
+    Apellidos varchar(80) not null,
+    Celular int not null,
+    Correo varchar(80) DEFAULT 'NO TIENE',
+    Estado varchar(30) NOT null DEFAULT 'INACTIVO'
+    );
+cREATE TABLE Usuario(
+    Id int PRIMARY KEY AUTO_INCREMENT,
+    Cedula int not null,
+    Usuario varchar(20) not null,
+    Contraseña varchar(16) not null
+    );
+ CREATE TABLE Rol(
+     Id int PRIMARY KEY AUTO_INCREMENT,
+     Nombre varchar(30) NOT null
+     );
+CREATE TABLE UsuarioRol(
+    Id int PRIMARY KEY AUTO_INCREMENT,
+    FRUsuario int not null,
+    FRRol int not null
+    );
+    
