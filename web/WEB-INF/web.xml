@@ -106,6 +106,14 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>Controlador.ListadoProductosdis</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TraerProductosMo</servlet-name>
+        <servlet-class>Controlador.TraerProductosMo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarFacturaCompra</servlet-name>
+        <servlet-class>Controlador.RegistrarFacturaCompra</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategorias</servlet-name>
         <url-pattern>/ListaCategorias</url-pattern>
@@ -205,6 +213,14 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraerProductosMo</servlet-name>
+        <url-pattern>/TraerProductosMo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarFacturaCompra</servlet-name>
+        <url-pattern>/RegistrarFacturaCompra</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

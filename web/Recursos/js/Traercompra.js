@@ -40,7 +40,7 @@ $(document).ready(function () {
     };
 
     const Productos = () => {
-        let ir_a = "TraerProductosFaltantes1";
+        let ir_a = "TraerProductosMo";
         let llevar;
         let hacer = (data) => {
             const dato = JSON.parse(data);
@@ -61,6 +61,9 @@ $(document).ready(function () {
                 input.attr("value", "0");
                 td3.append(input);
                 tr.append(td3);
+                let td6 = $("<td>");
+                td6.html(elemento.ValorPaquete);
+                tr.append(td6);
                 let td4 = $("<td>");
                 let input2 = $("<input>");
                 input2.addClass("form-control");
@@ -70,10 +73,13 @@ $(document).ready(function () {
                 input2.attr("value", "0");
                 td4.append(input2);
                 tr.append(td4);
+                let td7 = $("<td>");
+                td7.html(elemento.ValorUnidad);
+                tr.append(td7);
                 let td5 = $("<td>");
                 let btn = $("<button>");
                 btn.addClass("btn btn-success");
-                btn.html("Agregar");
+                btn.html("Agregar Carrito");
                 td5.append(btn);
                 tr.append(td5);
 
@@ -134,6 +140,17 @@ $(document).ready(function () {
         input2.hide();
         td3.append(input2);
         tr.append(td3);
+
+        let td6 = $("<td>");
+        td6.attr("id", "IDP" + elemento.Id);
+        td6.html(parseInt(elemento.ValorPaquete) * parseInt(cantidadP));
+        let input6 = $("<input>");
+        input6.addClass("datospvp");
+        input6.val(parseInt(elemento.ValorPaquete) * parseInt(cantidadP));
+        input6.hide();
+        td6.append(input6);
+        tr.append(td6);
+
         let td4 = $("<td>");
         td4.attr("id", "CanU" + elemento.Id);
         td4.html(CantidadU);
@@ -143,6 +160,17 @@ $(document).ready(function () {
         input3.hide();
         td4.append(input3);
         tr.append(td4);
+
+        let td7 = $("<td>");
+        td7.attr("id", "IDP" + elemento.Id);
+        td7.html(parseInt(elemento.ValorUnidad) * parseInt(CantidadU));
+        let input7 = $("<input>");
+        input7.addClass("datospvu");
+        input7.val(parseInt(elemento.ValorUnidad) * parseInt(CantidadU));
+        input7.hide();
+        td7.append(input7);
+        tr.append(td7);
+
         let td5 = $("<td>");
         let btn = $("<button>");
         btn.addClass("btn btn-success");
@@ -156,47 +184,73 @@ $(document).ready(function () {
 
         $("#TablaPedido").append(tr);
 
-    };
+        let btn5 = $("<button>");
+        btn5.addClass("btn btn-success");
+        btn5.html("Calcular");
+        $("#btncalcular").html(btn5);
 
-
-    const CrearPedido = () => {
-        let ir_a = "Paginas/RegistrarPedido.jsp";
-        let llevar;
-        let hacer = (data) => {
-            $("#datos").html(data);
-            proveedor();
-            Productos();
-            let btn = $("<button>");
-            btn.addClass("btn btn-primary");
-            btn.html("RegistrarPedido");
-            btn.click(function () {
-                RegistarPedido();
+        btn5.click(function () {
+            let datospvp = 0;
+            let datospvu = 0
+            $(".datospvp").each(function () {
+                datospvp += parseInt($(this).val());
             });
-            $("#divpedido").append(btn);
+            $(".datospvu").each(function () {
+                datospvu += parseInt($(this).val());
+            });
 
-        };
-        ajax(ir_a, llevar, hacer);
+
+            let input = $("<input>");
+            input.addClass("form-control TOTALT");
+            input.val(datospvp + datospvu);
+            input.attr("type", "number");
+            input.attr("id", "TOTALT");
+            input.attr("disabled", true);
+
+            $("#Total").html(input);
+            let btn10 = $("<button>");
+            btn10.addClass("btn btn-info");
+            btn10.html("Registrar");
+            $("#btncalcular").append(btn10);
+            btn10.click(function () {
+                RegistrarFacturaCompra();
+            });
+        });
     };
 
-    const RegistarPedido = () => {
-        let ID = "";
-        let CantidadP = "";
-        let CantidadU = "";
+    const RegistrarFacturaCompra = () => {
+        let ir_a = "RegistrarFacturaCompra";
+
+        let datospid = "";
+        let datospcp = "";
+        let datospvp = "";
+        let datospcu = "";
+        let datospvu = "";      
+        let TOTALT = $("#TOTALT").val();
+        
         $(".datospid").each(function () {
-            ID += $(this).val() + ";";
-        });
-        $(".datospcu").each(function () {
-            CantidadU += $(this).val() + ";";
+            datospid += $(this).val() + ";";
         });
         $(".datospcp").each(function () {
-            CantidadP += $(this).val() + ";";
+            datospcp += $(this).val() + ";";
         });
-        let ir_a = "RegistrarPedido";
+        $(".datospvp").each(function () {
+            datospvp += $(this).val() + ";";
+        });
+        $(".datospcu").each(function () {
+            datospcu += $(this).val() + ";";
+        });
+        $(".datospvu").each(function () {
+            datospvu += $(this).val() + ";";
+        });
+
         let llevar = {
-            id: ID,
-            cantidadp: CantidadP,
-            cantidadun: CantidadU,
-            idprovee: $("#selectP").val()
+            datospid: datospid,
+            datospcp: datospcp,
+            datospvp: datospvp,
+            datospcu: datospcu,
+            datospvu: datospvu,            
+            TOTALT: TOTALT            
         };
         let hacer = (data) => {
             if (data === "OK") {
@@ -205,7 +259,7 @@ $(document).ready(function () {
                     icon: 'success',
                     title: 'Completo',
                     background: 'linear-gradient(#2BD9DD , #6ACF28)',
-                    html: 'El producto ya esta registrado'
+                    html: 'La factura ya esta registrado'
                 });
                 setTimeout(function () {
                     location.reload(1);
@@ -218,10 +272,11 @@ $(document).ready(function () {
                     html: 'Error:' + data
                 });
             }
-
         };
         ajax(ir_a, llevar, hacer);
-
     };
+
+
+
 
 });

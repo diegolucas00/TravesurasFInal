@@ -243,7 +243,7 @@ public class ProductoDAO extends Conexion.Conexion {
                 PST = super.sentences(sentencia);                
                 ResultSet res = PST.executeQuery();
                 while (res.next()) {
-                    prod = new Producto(res.getInt("Id"),res.getString("Nombre"), res.getInt("ValorPaquete"), res.getInt("ValorUnitario"),res.getInt("CantidadUnitario"),res.getInt("CantidadPaquete"));
+                    prod = new Producto(res.getInt("Id"),res.getString("Nombre"), res.getInt("ValorPaquete"), res.getInt("ValorUnidad"),res.getInt("CantidadUnitario"),res.getInt("CantidadPaquete"));
                     listadoeven.add(new Gson().toJsonTree(prod));
                 }
                 super.cerrar();

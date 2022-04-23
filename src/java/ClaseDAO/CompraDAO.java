@@ -5,6 +5,7 @@
 package ClaseDAO;
 
 import Clases.Compra;
+import Clases.CompraDetalle;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import java.sql.PreparedStatement;
@@ -21,44 +22,42 @@ public class CompraDAO extends Conexion.Conexion {
 
     private PreparedStatement PST = null;
     private String error;
-    
-    public JsonArray ListadoFactura() {
-        JsonArray listadoeven = new JsonArray();
-        Compra factura;
-        String sentencia = "SELECT * FROM factura Where Estado='Pendiente';";
-        if (this.Connexion()) {
-            try {
-                PST = super.sentences(sentencia);
-                ResultSet res = PST.executeQuery();
-                while (res.next()) {
-               /*  factura = new Compra(res.getInt("Id_Factura"),res.getString("Cliente"),res.getFloat("Valor"), res.getString("Estado"));
-                    listadoeven.add(new Gson().toJsonTree(factura));*/
-                }
-                super.cerrar();
-            } catch (SQLException ex) {
-                listadoeven.add(new Gson().toJsonTree(ex));
-            }
 
-        } else {
-            error = "Error con la conexion a la base de datos, verifique conexion";
-            listadoeven.add(new Gson().toJsonTree(error));
-        }
-
-        return listadoeven;
-    }
-     public String RegistroPago( Compra Fact) {
+    public String RegistrarFactura(Compra compra, CompraDetalle compradetalle) {
         String resultado = "Error";
-        String sentencia = "UPDATE `factura` SET "
-                + "`Estado`='Pago'"
-                + " WHERE Id_Factura =?";
-        
+        String sentencia = "INSERT INTO `factura`(`Id`, `Fecha_Creacion`, `Estado`, `Valor_Total`) VALUES (null,NOW(),'Pagado',?);";
+        int cantidadp = 0;
+        int idproducto = 0;
+        int valorp = 0;
+        int cantidadu = 0;
+        int valoru = 0;
+
+        List<Integer> arraycantidadp = compradetalle.getCantidadPaquete();
+        List<Integer> arrayproducto = compradetalle.getProducto();
+        List<Integer> arrayvalorp = compradetalle.getValorPaquete();
+        List<Integer> arraycantidadu = compradetalle.getCantidadUnidad();
+        List<Integer> arrayvaloru = compradetalle.getValorUnidad();
+
         if (this.Connexion()) {
             try {
                 PST = super.sentences(sentencia);
-                PST.setInt(1, Fact.getId());
+                PST.setFloat(1, compra.getValor_Total());
                 if (!PST.execute()) {
                     resultado = "OK";
-                    
+                    for (int i = 0; i < arraycantidadp.size(); i++) {
+                        cantidadp = arraycantidadp.get(i);
+                        idproducto = arrayproducto.get(i);
+                        valorp = arrayvalorp.get(i);
+                        cantidadu = arraycantidadu.get(i);
+                        valoru = arrayvaloru.get(i);
+
+                        if (RegristrarFacturadetalle(idproducto, cantidadp, valorp, cantidadu, valoru)) {
+                            resultado = "OK";
+                        } else {
+                            resultado = "Error pedido2";
+                        }
+                    }
+                   
                 } else {
                     resultado = "Error al registrarlo";
                 }
@@ -71,6 +70,46 @@ public class CompraDAO extends Conexion.Conexion {
         } else {
             error = "Error con la conexion a la base de datos, verifique conexion";
             resultado = error;
+        }
+
+        return resultado;
+    }
+
+    public boolean RegristrarFacturadetalle(int producto, int cantidadp, int valorp, int cantidadu, int valoru) {
+        boolean resultado = false;
+        String sentencia = "INSERT INTO `facturaproducto`(`Id_Producto`, `Id_Factura`, "
+                + "`CantidadUnidad`, `ValorUnidad`, "
+                + "`CantidadPaquete`, `ValorPaquete`, `ID`) "
+                + "VALUES (?,?,?,"
+                + "?,?,?,null);";
+        String sentencia2 = "SELECT MAX(Id) AS Id FROM factura";
+        int numero = 0;
+        if (this.Connexion()) {
+            try {
+
+                PST = super.sentences(sentencia2);
+                ResultSet res = PST.executeQuery();
+                if (res.next()) {
+                    numero = res.getInt("Id");
+                }
+                PST = super.sentences(sentencia);
+                PST.setInt(1, producto);
+                PST.setInt(2, numero);
+                PST.setInt(3, cantidadu);
+                PST.setInt(4, valoru);
+                PST.setInt(5, cantidadp);
+                PST.setInt(6, valorp); 
+                if (!PST.execute()) {
+                    resultado = true;
+                }
+                super.cerrar();
+            } catch (SQLException ex) {
+                resultado = false;
+            }
+
+        } else {
+            error = "Error con la conexion a la base de datos, verifique conexion";
+            resultado = false;
         }
 
         return resultado;

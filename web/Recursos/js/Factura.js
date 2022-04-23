@@ -294,7 +294,7 @@ $(document).ready(function () {
             let btn = $("<button>");
             btn.addClass("btn btn-success");
             btn.html("Calcular");
-            $("#facturadiv").append(btn);
+            $("#btncalcular").html(btn);
             $("#TablaPedidosTotal").dataTable();
             btn.click(function () {
                 let TOTAL = 0;

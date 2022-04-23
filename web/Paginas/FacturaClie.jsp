@@ -17,7 +17,9 @@
                     <td scope="col">ID</td>
                     <td scope="col">Producto</td>
                     <td scope="col">Cantidad Paquete</td>
+                    <td scope="col">Valor Paquete</td>
                     <td scope="col">Cantidad unidad</td>
+                    <td scope="col">Valor unidad</td>
                     <td scope="col">ACCION</td>
                 </tr>
             </thead>
@@ -31,7 +33,9 @@
                     <td scope="col">ID</td>
                     <td scope="col">Producto</td>
                     <td scope="col">Cantidad Paquete</td>
+                    <td scope="col">Valor Paquete</td>
                     <td scope="col">Cantidad unidad</td>
+                    <td scope="col">valor unidad</td>
                     <td scope="col">ACCION</td>
                 </tr>
             </thead>
@@ -39,5 +43,16 @@
 
             </tbody>
         </table>
+        <div class="row">
+            <div class="col col-lg-6" id="Categoriadiv">
+                <h3>Total</h3>
+            </div>
+            <div id="Total">
+
+            </div>
+        </div>  
+        <div id="btncalcular">
+
+        </div>
     </div>
 </html>
