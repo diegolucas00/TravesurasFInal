@@ -43,6 +43,7 @@ $(document).ready(function () {
         let llevar;
         let hacer = (data) => {
             const dato = JSON.parse(data);
+            $("#TablaClitbody").html("");
             dato.forEach(elemento => {
                 let tr = $("<tr>");
                 let td = $("<td>");
@@ -54,7 +55,7 @@ $(document).ready(function () {
                 input11.attr("id", "Id_Factura");
                 input11.hide();
                 td.append(input11);
-                tr.append(td2);
+                tr.append(td);
                 let td2 = $("<td>");
                 td2.html(elemento.Cliente);
                 let input11 = $("<input>");
